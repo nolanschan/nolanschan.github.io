@@ -1,9 +1,15 @@
 EE400D - Electrical Engineering Design Project
--  Self-stabilizing quadcopter
+<ul>
+<li>Self-stabilizing quadcopter</li>
+</ul>
 
 EE370L - Control Systems Lab
--  Analog control circuit
+<ul>
+<li>Analog control circuit</li>
+</ul>
 
 EE301 - Digital System Design
--  Lock
--  Project 2
+<ul>
+<li>Digital lock</li>
+<li>Project 2</li>
+</ul>
