@@ -1,3 +1,8 @@
+---
+title: Projects
+layout: default
+---
+
 EE400D - Electrical Engineering Design Project
 <ul>
 <li>Self-stabilizing quadcopter</li>
