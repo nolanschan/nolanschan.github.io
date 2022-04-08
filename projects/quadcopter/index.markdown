@@ -12,7 +12,7 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 
 ## Theory ##
 
-### Flight Mechanics ###
+#### Flight Mechanics ####
 
 Before we could design a quadcopter, we had to learn how they fly!
 
