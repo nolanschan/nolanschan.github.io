@@ -32,7 +32,7 @@ To control our quadcopter, we had to know where it is and what it's doing.
 
 ## System Block Diagram ##
 
-<img src="/projects/quadcopter/blockdiagram.png" width="500">
+<img src="/projects/quadcopter/blockdiagram.png">
 
 ## Design Process ##
 
