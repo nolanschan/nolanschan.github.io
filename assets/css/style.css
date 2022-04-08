@@ -14,7 +14,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: square;
+	list-style-type: square;
 }
 blockquote, q {
 	quotes: none;
