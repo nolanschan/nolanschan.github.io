@@ -5,7 +5,7 @@ layout: default
 
 EE400D - Electrical Engineering Design Project
 <ul>
-<li>[Self-stabilizing quadcopter](/quadcopter)</li>
+<li>[Self-stabilizing quadcopter](/projects/quadcopter)</li>
 </ul>
 
 EE370L - Control Systems Lab
