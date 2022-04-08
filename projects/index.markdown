@@ -4,7 +4,9 @@ layout: default
 ---
 
 ## EE400D - Electrical Engineering Design Project ##
-<a href="/projects/quadcopter">Self-stabilizing quadcopter</a>
+<ul>
+  <li><a href="/projects/quadcopter">Self-stabilizing quadcopter</a></li>
+</ul>
 
 ## EE370L - Control Systems Lab ##
 Analog control circuit
