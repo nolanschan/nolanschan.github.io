@@ -1,7 +1,7 @@
 ---
-title: EE370L - Analog Control Circuit
+title: EE370L - Analog control circuit
 layout: default
 ---
-# Analog Control Circuit #
+# Analog control circuit #
 
 ## Project Overview ##
