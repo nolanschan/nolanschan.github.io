@@ -11,4 +11,4 @@ Skills:
 -  Computer-Aided Design: SolidWorks (Certified SolidWorks Associate), AutoCAD
 -  Development Kits: Arduino, Diligent Basys 2, STM32 Discovery
 -  Software: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
--  Benchtop Equipment: Oscilloscope, digital multimeter, function generator, DC power supply
+-  Benchtop Equipment: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
