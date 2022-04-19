@@ -9,6 +9,6 @@ Skills:
 -  Programming Languages: MATLAB, C++, LabVIEW, VHDL, Assembly
 -  Electronic Design Automation: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
 -  Computer-Aided Design: SolidWorks (Certified SolidWorks Associate), AutoCAD
--  Development Kits: Arduino, Diligent Basys 2, STM32 Discovery
+-  Development Kits: Arduino, Diligent Basys 3, STM32 Discovery
 -  Software: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
 -  Benchtop Equipment: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
