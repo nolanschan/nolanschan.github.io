@@ -66,7 +66,7 @@ Upon assembling and testing our quadcopter, we found that it was too heavy! It t
 
 ## Flight Controller Software ##
 
-Among other tasks, I was in charge of the flight controller software. With no prior knowledge about flight controllers, I looked into all the open-source flight controllers I could find. The final version of our flight controller heavily references <a href="http://www.brokking.net/ymfc-al_main.html">Project YMFC-AL</a> by Joop Brokking, whose informative and well-documented code and process contributed greatly to our understanding and implementation of our own project. While I rewrote the entire program myself to ensure I understood it and made some minor structural changes to the code, I must give credit to where it's due.
+Among other tasks, I was in charge of the flight controller software. With no prior knowledge about flight controllers, I looked into all the open-source flight controllers I could find. The final version of our flight controller heavily references <a href="http://www.brokking.net/ymfc-al_main.html">Project YMFC-AL</a> by Joop Brokking, whose informative and well-documented code and process contributed greatly to our understanding and implementation of our own project. His code was used as a base for our flight controller program.
 
 ## PID Tuning ##
 
