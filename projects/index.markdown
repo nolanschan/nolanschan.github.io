@@ -13,6 +13,3 @@ layout: default
 ## EE470 - Digital Control ##
 - <a href="/projects/leadcompcircuit">Analog Lead Compensator Circuit</a>
 - <a href="/projects/adcdac">Analog-to-Digital / Digital-to-Analog Conversion using Arduino</a>
-
-## EE370L - Control Systems Lab ##
--  <a href="/projects/controlsystemslab">Analog control circuit</a>
