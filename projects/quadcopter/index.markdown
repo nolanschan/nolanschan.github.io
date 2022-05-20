@@ -1,8 +1,8 @@
 ---
-title: EE400D - Self-stabilizing quadcopter
+title: Self-Stabilizing Quadcopter using Arduino (EE400D - Electrical Engineering Design Project) 
 layout: default
 ---
-# Self-stabilizing quadcopter #
+# Self-Stabilizing Quadcopter using Arduino #
 
 ## Project Overview ##
 
