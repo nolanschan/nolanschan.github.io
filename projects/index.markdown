@@ -8,7 +8,7 @@ layout: default
 
 ## EE412 - Fractals in Engineering ##
 -  <a href="/projects/speakerid">Speaker Identification using Python and Machine Learning</a>
--  
+
 ## EE370L - Control Systems Lab ##
 -  <a href="/projects/controlsystemslab">Analog control circuit</a>
 
