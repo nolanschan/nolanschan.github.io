@@ -6,6 +6,8 @@ layout: default
 
 ## Project Overview ##
 
+Part 2 of Benchtop Labs for Digital Control course.
+
 The purpose of this lab experiment is to understand the principals of analog-to-digital conversion (ADC) and digital-to-analog conversion (DAC). The system is implemented on an Arduino Mega 2560. A sine wave from an external function generator serves as the analog input signal to the system. Analog-to-digital conversion is performed by the Arduino’s onboard ADC. The digital-to-analog process utilizes a MCP4921 IC chip. The resulting signal is outputted to an external oscilloscope in order to view the waveform. The effect of clock rate on the sampling process is also explored.
 
 ## Analog-to-Digital Conversion (ADC) ##
