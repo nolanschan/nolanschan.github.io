@@ -13,8 +13,3 @@ layout: default
 
 ## EE370L - Control Systems Lab ##
 -  <a href="/projects/controlsystemslab">Analog control circuit</a>
-
-
-## EE301 - Digital System Design ##
--  Universal shift register
--  Digital lock
