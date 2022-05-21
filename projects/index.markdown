@@ -4,13 +4,13 @@ layout: default
 ---
 # Projects #
 
-## EE400D - Electrical Engineering Design Project ##
+### EE400D - Electrical Engineering Design Project ###
 -  <a href="/projects/quadcopter">Self-Stabilizing Quadcopter using Arduino</a>
 
 
-## EE412 - Fractals in Engineering ##
+### EE412 - Fractals in Engineering ###
 -  <a href="/projects/speakerid">Speaker Identification using Python and Machine Learning</a>
 
-## EE470 - Digital Control ##
+### EE470 - Digital Control ###
 - <a href="/projects/leadcompcircuit">Analog Lead Compensator Circuit</a>
 - <a href="/projects/adcdac">Analog-to-Digital / Digital-to-Analog Conversion using Arduino</a>
