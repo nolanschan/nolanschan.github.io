@@ -23,23 +23,19 @@ The resulting value is a normalized voltage found by:
 
 $$ADC\ =\ \frac{V_{IN}(1024)}{V_{REF}}$$
 
-For V<sub>REF</sub> = 5V, this gives a resolution of 4.88mV per voltage step, or LSB.
-Since the maximum ADC value is the reference voltage minus 1 LSB, the maximum ADC value can be
-found to be:
+For $$V_{REF}\ =\ 5V$$, this gives a resolution of 4.88mV per voltage step, or LSB. Since the maximum ADC value is the reference voltage minus 1 LSB, the maximum ADC value can be found to be:
 
 $$(1024 - 1)(\frac{5}{1024})\ =\ 4.9951V$$
 
 ## Clock Rate ##
 
-The ADC operates at a clock rate that is 16MHz / a ‘prescale factor’. By default, the prescale factor is set to 128, such that the clock rate = 16MHz / 128 = 125kHz. According to the data sheet, a normal conversion takes 13 ADC clock cycles. Therefore, the theoretical default sampling rate = 125kHZ
-/ 13 ≈ 9600Hz. By changing the ADPS2, 1, 0 registers, the prescale factor can be changed, allowing the ADC to operate faster or slower. By writing ‘1 0 0’ to the ADPS2, 1, 0 registers respectively in the setup() function, the prescale factor can be changed to 16. While lower prescale factors are theoretically possible, the prescale factor is left at 16, as it is the lowest value that the ADC clock is rated for. The clock rate than becomes 16MHz / 16 = 1MHz. Using 13 ADC clock cycles per conversion, the sampling rate is theoretically found to be 1MHz / 13 ≈ 76.8kHz
+The ADC operates at a clock rate that is 16MHz / a ‘prescale factor’. By default, the prescale factor is set to 128, such that the clock rate = 16MHz / 128 = 125kHz. According to the data sheet, a normal conversion takes 13 ADC clock cycles. Therefore, the theoretical default sampling rate = 125kHZ / 13 ≈ 9600Hz. By changing the ADPS2, 1, 0 registers, the prescale factor can be changed, allowing the ADC to operate faster or slower. By writing ‘1 0 0’ to the ADPS2, 1, 0 registers respectively in the setup() function, the prescale factor can be changed to 16. While lower prescale factors are theoretically possible, the prescale factor is left at 16, as it is the lowest value that the ADC clock is rated for. The clock rate than becomes 16MHz / 16 = 1MHz. Using 13 ADC clock cycles per conversion, the sampling rate is theoretically found to be 1MHz / 13 ≈ 76.8kHz
 
 ## Digital-to-Analog Conversion (DAC) ##
 
 Digital-to-analog conversion is the process of converting a discrete digital signal into a continuous analog signal. In general, DAC uses interpolation to fill in the values between the steps of a digital signal in order to create a smoother analog signal. As the ATmega microcontrollers lack an onboard DAC accessible by the user, DAC must be performed by an external device. In this experiment, the MCP4921 IC is used. The MCP4921 is a 12-bit, single-channel DAC with SPI interface with up to 20MHz Clock Support.
 
-1 LSB is the ideal voltage difference between two successive codes. The LSB size can be found by
-the following equation:
+1 LSB is the ideal voltage difference between two successive codes. The LSB size can be found by the following equation:
 
 $$V_{OUT}\ =\ \frac{V_{REF}GD_N}{2^n},$$
 
