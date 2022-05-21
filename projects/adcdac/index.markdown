@@ -17,7 +17,7 @@ Analog-to-digital conversion, also known as sampling, is the process of converti
 Like the ATmega328P, the ATmega2560 features a 10-bit successive approximation ADC with +/- 2LSB absolute accuracy. A successive approximation ADC essentially compares the analog input voltage to the reference voltage by performing a binary search through all possible quantization levels until it
 converges on a digital output. Starting with the MSB, the ADC uses a sample and hold comparator to compare the analog input voltage V<sub>IN</sub> with an internally generated reference voltage V<sub>ref,n</sub> = (½)V<sub>REF</sub>. If the analog input voltage V<sub>IN</sub> is greater than the internally generated reference voltage V<sub>ref,n</sub>, then the MSB is set to 1. Otherwise, it is set to 0. The process is repeated with the next lower bit, with the new internally generated reference voltage V<sub>ref,n+1</sub> = (½)(V<sub>ref,n</sub>) + V<sub>ref,n</sub> or (½)(V<sub>ref,n</sub>) depending on the previous result, until the results converge, and the conversion is completed.
 
-The minimum value of the ADC register (0x000) represents GND, and the maximum value (0x3FF) represents the reference voltage minus 1 LSB. For this experiment, the reference voltage is kept as the default A<sub<REF</sub> = A<sub>VCC</sub> = 5V.
+The minimum value of the ADC register (0x000) represents GND, and the maximum value (0x3FF) represents the reference voltage minus 1 LSB. For this experiment, the reference voltage is kept as the default A<sub>REF</sub> = A<sub>VCC</sub> = 5V.
 
 The resulting value is a normalized voltage found by:
 $$ADC\ =\ \frac{V_{IN}(1024)}{V_{REF}}$$
@@ -43,9 +43,15 @@ $$V_{OUT}\ =\ \frac{V_{REF}GD_N}{2^n},$$
 
 where <i>G</i> is the selected gain (1x in this case), <i>D<sub>N</sub></i> is the digital input value, and <i>n</i> is the number of bits of resolution (<i>n = 12</i>).
 
+## System Block Diagram with Circuit Connections ##
+
+<img src="/projects/adcdac/assets/blockdiagram.png"></img>
+
 ## Physical Implementation ##
 
 For the physical implementation of the system, power is supplied to the Arduino via the USB port. The MCP4921 is then powered by the 5V output pin from the Arduino. Because the Arduino cannot take negative voltage as input (max: -0.5V), the analog input signal from the function generator is given a DC offset of +2V, with V<sub>p-p</sub> = 1V.
+
+<img src="/projects/adcdac/assets/circuit.jpg"></img>
 
 ## Program Code ##
 
@@ -60,7 +66,33 @@ The ADC/DAC system is tested at various frequencies between 10 – 10kHz in orde
 
 At 10Hz and 100Hz, there is no noticable difference between the results obtained with the default clock rate and the faster clock rate. Both results show a faithful replication of the original input signal. However, at 1k+Hz, the difference in resolution due to the clock rate starts to become visible.
 
-Starting at 1kHz, the default clock rate-sampled output starts to become unable to replicate the sine wave. Freezing the frame of the oscilloscope allows for the observation of the characteristic staircase shape of a digital signal. The faster clock rate-sampled output is able to maintain roughly the shape of a sine wave for up to about 5kHz, by which point the default clock rate-sampled output can be seen to have already lost its symmetry and structure. Increasing the input frequency up to 10kHz, even the faster clock rate is no longer able to maintain the symmetry. The default clock rate, of course, looks even less like the original intput signal.
+### 10Hz ###
+<img src="/projects/adcdac/assets/10Hz.png"></img>
+
+### 100Hz ###
+<img src="/projects/adcdac/assets/100Hz.png"></img>
+
+Starting at 1kHz, the default clock rate-sampled output starts to become unable to replicate the sine wave. Freezing the frame of the oscilloscope allows for the observation of the characteristic staircase shape of a digital signal. The faster clock rate-sampled output is able to maintain roughly the shape of a sine wave for up to about 5kHz, by which point the default clock rate-sampled output can be seen to have already lost its symmetry and structure. 
+
+### 1kHz ###
+<img src="/projects/adcdac/assets/1kHz.png"></img>
+
+### 1kHz (paused) ###
+<img src="/projects/adcdac/assets/1kHzpaused.png"></img>
+
+### 2kHz (paused) ###
+<img src="/projects/adcdac/assets/2kHzpaused.png"></img>
+
+### 5kHz (paused) ###
+<img src="/projects/adcdac/assets/5kHzpaused.png"></img>
+
+Increasing the input frequency up to 10kHz, even the faster clock rate is no longer able to maintain the symmetry. The default clock rate, of course, looks even less like the original intput signal.
+
+### 10kHz ###
+<img src="/projects/adcdac/assets/10kHz.png"></img>
+
+### 10kHz (paused) ###
+<img src="/projects/adcdac/assets/10kHzpaused.png"></img>
 
 ## Conclusion ##
 In this lab experiment, an ADC-DAC system was implemented on an Arduino Mega 2560 in conjunction with an MCP4921 IC chip to convert an analog input signal into digital values and then back into an analog output signal. The effect of the clock rate on the sampling process was also seen by comparing the results using the default clock rate and a faster clock rate.
