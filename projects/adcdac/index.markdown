@@ -20,11 +20,13 @@ converges on a digital output. Starting with the MSB, the ADC uses a sample and 
 The minimum value of the ADC register (0x000) represents GND, and the maximum value (0x3FF) represents the reference voltage minus 1 LSB. For this experiment, the reference voltage is kept as the default A<sub>REF</sub> = A<sub>VCC</sub> = 5V.
 
 The resulting value is a normalized voltage found by:
+
 $$ADC\ =\ \frac{V_{IN}(1024)}{V_{REF}}$$
 
 For V<sub>REF</sub> = 5V, this gives a resolution of 4.88mV per voltage step, or LSB.
 Since the maximum ADC value is the reference voltage minus 1 LSB, the maximum ADC value can be
 found to be:
+
 $$(1024 - 1)(\frac{5}{1024})\ =\ 4.9951V$$
 
 ## Clock Rate ##
