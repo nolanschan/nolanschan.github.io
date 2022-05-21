@@ -2,6 +2,7 @@
 title: Projects
 layout: default
 ---
+# Projects #
 
 ## EE400D - Electrical Engineering Design Project ##
 -  <a href="/projects/quadcopter">Self-Stabilizing Quadcopter using Arduino</a>
