@@ -45,13 +45,13 @@ where <i>G</i> is the selected gain (1x in this case), <i>D<sub>N</sub></i> is t
 
 ## System Block Diagram with Circuit Connections ##
 
-<img src="/projects/adcdac/assets/blockdiagram.png"></img>
+<img src="/projects/adcdac/assets/blockdiagram.png">
 
 ## Physical Implementation ##
 
 For the physical implementation of the system, power is supplied to the Arduino via the USB port. The MCP4921 is then powered by the 5V output pin from the Arduino. Because the Arduino cannot take negative voltage as input (max: -0.5V), the analog input signal from the function generator is given a DC offset of +2V, with V<sub>p-p</sub> = 1V.
 
-<img src="/projects/adcdac/assets/circuit.jpg"></img>
+<img src="/projects/adcdac/assets/circuit.jpg">
 
 ## Program Code ##
 
@@ -67,32 +67,32 @@ The ADC/DAC system is tested at various frequencies between 10 – 10kHz in orde
 At 10Hz and 100Hz, there is no noticable difference between the results obtained with the default clock rate and the faster clock rate. Both results show a faithful replication of the original input signal. However, at 1k+Hz, the difference in resolution due to the clock rate starts to become visible.
 
 ### 10Hz ###
-<img src="/projects/adcdac/assets/10Hz.png"></img>
+<img src="/projects/adcdac/assets/10Hz.png">
 
 ### 100Hz ###
-<img src="/projects/adcdac/assets/100Hz.png"></img>
+<img src="/projects/adcdac/assets/100Hz.png">
 
 Starting at 1kHz, the default clock rate-sampled output starts to become unable to replicate the sine wave. Freezing the frame of the oscilloscope allows for the observation of the characteristic staircase shape of a digital signal. The faster clock rate-sampled output is able to maintain roughly the shape of a sine wave for up to about 5kHz, by which point the default clock rate-sampled output can be seen to have already lost its symmetry and structure. 
 
 ### 1kHz ###
-<img src="/projects/adcdac/assets/1kHz.png"></img>
+<img src="/projects/adcdac/assets/1kHz.png">
 
 ### 1kHz (paused) ###
-<img src="/projects/adcdac/assets/1kHzpaused.png"></img>
+<img src="/projects/adcdac/assets/1kHzpaused.png">
 
 ### 2kHz (paused) ###
-<img src="/projects/adcdac/assets/2kHzpaused.png"></img>
+<img src="/projects/adcdac/assets/2kHzpaused.png">
 
 ### 5kHz (paused) ###
-<img src="/projects/adcdac/assets/5kHzpaused.png"></img>
+<img src="/projects/adcdac/assets/5kHzpaused.png">
 
 Increasing the input frequency up to 10kHz, even the faster clock rate is no longer able to maintain the symmetry. The default clock rate, of course, looks even less like the original intput signal.
 
 ### 10kHz ###
-<img src="/projects/adcdac/assets/10kHz.png"></img>
+<img src="/projects/adcdac/assets/10kHz.png">
 
 ### 10kHz (paused) ###
-<img src="/projects/adcdac/assets/10kHzpaused.png"></img>
+<img src="/projects/adcdac/assets/10kHzpaused.png">
 
 ## Conclusion ##
 In this lab experiment, an ADC-DAC system was implemented on an Arduino Mega 2560 in conjunction with an MCP4921 IC chip to convert an analog input signal into digital values and then back into an analog output signal. The effect of the clock rate on the sampling process was also seen by comparing the results using the default clock rate and a faster clock rate.
