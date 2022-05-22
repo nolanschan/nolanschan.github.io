@@ -8,7 +8,39 @@ layout: default
 
 For our senior capstone design course, our group decided to build an unmanned aerial vehicle (UAV), more commonly known as a drone. None of us knew much about drones in general, but we thought it would be a cool project and a good learning experience. As electrical engineers, our focus was on the control system -- the flight controller, rather than the actual vehicle. While there're many types of UAV's out there, the X-configuration quadcopter is by far the most popular, due to the fact that it can be controlled with a simple flight control system.
 
-Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form. 
+Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form.
+
+## Index ##
+
+[Theory] (#theory)
+
+[System Block Diagram] (#system-block-diagram)
+
+[Hardware Design Process] (#hardware-design-process)
+
+[Initial Testing and Design Adjustments] (#initial-testing-and-design-adjustments)
+
+[Flight Controller Software] (#flight-controller-software)
+
+[PID Tuning] (#pid-turning)
+
+[Results and Analysis] (#results-and-analysis)
+
+[Repository] (https://github.com/nolanschan/Arduino-Quadcopter)
+
+## Summary / tl;dr ##
+
+### Procedures ###
+- Researched quadcopter flight mechanics, modeling, components, and control
+- Performed cost analysis and component selection to design, assemble, and test quadcopter
+- Programmed and debugged flight controller code using Arduino
+  - Implemented complementary filter to process signals from IMU
+  - Set up and calibrated quadcopter and RC system using calibration code
+- Implemented PID controller to control quadcopter movement
+  - Improved flight and self-stabilization performance by tuning PID controller
+
+### Results ###
+Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly.
 
 ## Theory ##
 
