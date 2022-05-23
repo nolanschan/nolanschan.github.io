@@ -117,7 +117,7 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
 
 <img src="/projects/leadcompcircuit/assets/lvlshiftcircuit.png">
 
-## Simulation (Simulink)##
+## Simulation (Simulink) ##
 
 ### Model ###
 
