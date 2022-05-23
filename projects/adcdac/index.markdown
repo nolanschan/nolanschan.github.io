@@ -14,9 +14,9 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
-  [Analog-to-Digital Conversion (ADC)](#analog-to-digital-conversion-adc) <br>
-  [Clock Rate](#clock-rate) <br>
-  [Digital-to-Analog Conversion (DAC)](#digital-to-analog-conversion-dac) <br>
+— [Analog-to-Digital Conversion (ADC)](#analog-to-digital-conversion-adc) <br>
+— [Clock Rate](#clock-rate) <br>
+— [Digital-to-Analog Conversion (DAC)](#digital-to-analog-conversion-dac) <br>
 [System Block Diagram with Circuit Connections](#system-block-diagram-with-circuit-connections) <br>
 [Physical Implementation](#physical-implementation) <br>
 [Program Code (Repository)](https://github.com/nolanschan/Arduino-ADC-DAC) <br>
