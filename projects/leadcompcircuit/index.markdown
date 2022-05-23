@@ -34,7 +34,7 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 
 ### Design ###
 
-  In the frequency domain, an integrator has the transfer function 1/s. A double integrator therefore has the transfer function 1/s^2. The transfer function of an inverting op amp integrator is given by $$G\left(s\right)=\frac{1}{sRC}$$. For unity gain, RC\ =\ 1. To avoid overly large values for R or C, C was chosen to be 10µF, making R = 100kΩ. 
+  In the frequency domain, an integrator has the transfer function 1/s. A double integrator therefore has the transfer function 1/s^2. The transfer function of an inverting op amp integrator is given by $$G\left(s\right)=\frac{1}{sRC}$$. For unity gain, RC = 1. To avoid overly large values for R or C, C was chosen to be 10µF, making R = 100kΩ. 
 
 ### Circuit ###
 
