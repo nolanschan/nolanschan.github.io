@@ -9,7 +9,7 @@ layout: default
 
 
 ### EE412 - Fractals in Engineering ###
--  <a href="/projects/speakerid">Speaker Identification using Python and Machine Learning</a>
+-  <a href="/projects/speakerrec">Speaker Recognition using Python and Machine Learning</a>
 
 ### EE470 - Digital Control ###
 - <a href="/projects/leadcompcircuit">Analog Lead Compensator Circuit</a>
