@@ -78,7 +78,7 @@ The Derivative controller output is based on the derivative, or rate of change, 
 
 ## System Block Diagram ##
 
-<img src="/projects/quadcopter/blockdiagram.png">
+<img src="/projects/quadcopter/blockdiagram.png" width="800">
 
 ## Hardware Design Process ##
 
