@@ -28,7 +28,7 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 
 ## Op-Amp Selection ##
 
-  For this experiment, the TLV2774 op amp, manufactured by Texas Instruments, was chosen to implement this circuit. The TLV2774 is a single-supply, rail-to-rail op amp, with supply voltage from 0 – 6V.
+  For this experiment, the TLV2774 op-amp, manufactured by Texas Instruments, was chosen to implement this circuit. This component was one of the op-amps suggested by the lab instructions for use in this experiment. The TLV2774 is a single-supply, rail-to-rail op-amp, with supply voltage from 0 – 6V.
 
 ## Plant ##
 
