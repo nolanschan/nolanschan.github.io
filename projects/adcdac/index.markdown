@@ -10,7 +10,32 @@ Part 2 of Benchtop Labs for Digital Control course.
 
 The purpose of this lab experiment is to understand the principals of analog-to-digital conversion (ADC) and digital-to-analog conversion (DAC). The system is implemented on an Arduino Mega2560. A sine wave from an external function generator serves as the analog input signal to the system. Analog-to-digital conversion is performed by the Arduino’s onboard ADC. The digital-to-analog process utilizes a MCP4921 IC chip. The resulting signal is outputted to an external oscilloscope in order to view the waveform. The effect of clock rate on the sampling process is also explored.
 
-## Analog-to-Digital Conversion (ADC) ##
+## Index ##
+
+[Summary / tl;dr](#summary--tldr) <br>
+[Theory](#theory) <br>
+  [Analog-to-Digital Conversion (ADC)](#analog-to-digital-conversion-adc) <br>
+  [Clock Rate](#clock-rate) <br>
+  [Digital-to-Analog Conversion (DAC)](#digital-to-analog-conversion-dac) <br>
+[System Block Diagram with Circuit Connections](#system-block-diagram-with-circuit-connections) <br>
+[Physical Implementation](#physical-implementation) <br>
+[Program Code (Repository)](https://github.com/nolanschan/Arduino-ADC-DAC) <br>
+[Results and Discussion](#results-and-discussion) <br>
+[Conclusion](#conclusion) <br>
+
+## Summary / tl;dr ##
+
+### Procedures ###
+  - Converted analog input (sine wave) to digital signal using Arduino ADC
+  - Converted digital signal to analog output using MCP4921 IC chip
+  - Increased clock rate and repeated procedures
+
+### Results ###
+System was implemented properly and correctly converted analog input to digital signal, then back to analog output. The maximum input frequency at which the default clock rate is able to replicate the input sine wave is ≤ 1kHz, likely at a frequency closer to 100Hz. For the faster clock rate, the highest frequency appears to be around 2k - 5kHz.
+
+## Theory ##
+
+### Analog-to-Digital Conversion (ADC) ###
 
 Analog-to-digital conversion, also known as sampling, is the process of converting a continuous analog signal into a discrete digital signal. In general, an ADC system takes in, or “samples” the analog input at an interval determined by the sampling frequency, and converts the actual value to the closest discrete value.
 
@@ -27,11 +52,11 @@ For $$V_{REF}\ =\ 5V$$, this gives a resolution of 4.88mV per voltage step, or L
 
 $$(1024 - 1)(\frac{5}{1024})\ =\ 4.9951V$$
 
-## Clock Rate ##
+### Clock Rate ###
 
 The ADC operates at a clock rate that is 16MHz / a ‘prescale factor’. By default, the prescale factor is set to 128, such that the clock rate = 16MHz / 128 = 125kHz. According to the data sheet, a normal conversion takes 13 ADC clock cycles. Therefore, the theoretical default sampling rate = 125kHZ / 13 ≈ 9600Hz. By changing the ADPS2, 1, 0 registers, the prescale factor can be changed, allowing the ADC to operate faster or slower. By writing ‘1 0 0’ to the ADPS2, 1, 0 registers respectively in the setup() function, the prescale factor can be changed to 16. While lower prescale factors are theoretically possible, the prescale factor is left at 16, as it is the lowest value that the ADC clock is rated for. The clock rate than becomes 16MHz / 16 = 1MHz. Using 13 ADC clock cycles per conversion, the sampling rate is theoretically found to be 1MHz / 13 ≈ 76.8kHz
 
-## Digital-to-Analog Conversion (DAC) ##
+### Digital-to-Analog Conversion (DAC) ###
 
 Digital-to-analog conversion is the process of converting a discrete digital signal into a continuous analog signal. In general, DAC uses interpolation to fill in the values between the steps of a digital signal in order to create a smoother analog signal. As the ATmega microcontrollers lack an onboard DAC accessible by the user, DAC must be performed by an external device. In this experiment, the MCP4921 IC is used. The MCP4921 is a 12-bit, single-channel DAC with SPI interface with up to 20MHz Clock Support.
 
