@@ -129,16 +129,16 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
 
 ### Simulation Plot ###
 
-<img src="/projects/leadcompcircuit/assets/simulinksimplot.png">
-Rise time: 1.432 - 1.079 = 0.353s
-Settling time: 3.565s
+<img src="/projects/leadcompcircuit/assets/simulinksimplot.png"> <br>
+Rise time: 1.432 - 1.079 = 0.353s <br>
+Settling time: 3.565s <br>
 Percent overshoot: 23.3%
 
 ## Results and Discussion ##
 
-<img src="/projects/leadcompcircuit/assets/hardwareoutput.jpg">
-Rise time: ~2s
-Settling time: ~7.5s
+<img src="/projects/leadcompcircuit/assets/hardwareoutput.jpg"> <br>
+Rise time: ~2s <br>
+Settling time: ~7.5s <br>
 Percent overshoot: 23%
 
   Comparing the results from the simulation and the analog circuit, it can be seen that the rise time and settling time were much higher with the circuit. However, the percent overshoot was actually almost the same. Additionally, while in simulation, a gain of 32 was found to give the best response (smallest overshoot and fast settling time), this did not turn out to be the case with the analog circuit. Reducing the overshoot was prioritized when adjusting the gain in the circuit using the two potentiometers. The overall gain of the system that produced the least overshoot was found to be about 13.
