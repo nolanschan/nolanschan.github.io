@@ -6,7 +6,7 @@ layout: default
 
 ## Project Overview ##
 
-
+I had been wanting to learn more about machine learning (as well as Python), and I was really excited to take a "Neural Network and Fuzzy Logic" course my last semester. But unfortunately, it got canceled due to low enrollment. So when I found out that my Fractals class had a final project with a free choice of topic, I took advantage of the opportunity and did mine on machine learning.
 
 ## Index ##
 
