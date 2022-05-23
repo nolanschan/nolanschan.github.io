@@ -61,10 +61,12 @@ $$b\ =\ 1/R_2C_1$$
 $$a\ =\ \left(1+\frac{R_2}{R_1}\right)b$$
 
   Comparing with our desired transfer function, b = 1, and a = 10. Again, component values were chosen as C1 = 10µF, and R2 = 100kΩ, such that
+  
 $$b\ =\ \frac{1}{\left(100\times{10}^3\right)\left(10\times{10}^{-6}\right)}\ =\ 1$$
 
   Solving for R1,
-$$10\ =\ \left[1+\frac{\left(100\times{10}^3\right)}{R_1}\right]\(1)$$
+  
+$$10\ =\ \left[1+\frac{\left(100\times{10}^3\right)}{R_1}\right](1)$$
 
 $$9\ =\ \frac{\left(100\times{10}^3\right)}{R_1}$$
 
