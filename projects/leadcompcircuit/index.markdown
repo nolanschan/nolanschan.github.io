@@ -84,10 +84,12 @@ $$R_1\ =\ \frac{\left(100\times{10}^3\right)}{9}\ \cong\ 11.111k\Omega$$
 
 ### Design ###
 
-  The summing junction is a differential amplifier implemented with an op-amp. The output of a differential amplifier is given by 
+  The summing junction is a differential amplifier implemented with an op-amp. The output of a differential amplifier is given by
+  
 $$V_{out}\ =\ V_+\left(\frac{R_4}{R_2+R_4}\right)\left(\frac{R_1+R_3}{R_1}\right)-V_-\left(\frac{R_3}{R_1}\right)$$
 
   For $$R_1=R_2=R_3=R_4=1k\Omega$$:
+  
 $$V_{out}\ =\ V_+-V_-\ =\ U\left(t\right)-Y\left(t\right)=E\left(t\right)$$
 
   The summing junction/differential amplifier produces an output that is the difference between the two inputs. When the inputs are the set point and the feedback signal from the output of the circuit, the summing junction produces the error signal, which is fed into the compensator.
