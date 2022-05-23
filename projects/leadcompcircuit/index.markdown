@@ -50,7 +50,7 @@ $$C(s)\ =\ k\frac{\left(s+1\right)}{\left(s+10\right)}$$
 
   The circuit design of a lead compensator was found in Design of Feedback Control Systems, 4th ed., by Stefani, Shahian, Savant, and Hostetter, with the following parameters.
 
-<img src="/projects/leadcompcircuit/assets/leadcompcircuit.png">
+<img src="/projects/leadcompcircuit/assets/leadcompcircuit.png" width="800">
 
 $$k\frac{\left(s+b\right)}{\left(s+a\right)}$$
 
@@ -140,6 +140,8 @@ Percent overshoot: 23.3%
 Rise time: ~2s <br>
 Settling time: ~7.5s <br>
 Percent overshoot: 23%
+
+  It should be noted that due to technical issues with the oscilloscope probes, the amplitude shown are ~10x the actual value.
 
   Comparing the results from the simulation and the analog circuit, it can be seen that the rise time and settling time were much higher with the circuit. However, the percent overshoot was actually almost the same. Additionally, while in simulation, a gain of 32 was found to give the best response (smallest overshoot and fast settling time), this did not turn out to be the case with the analog circuit. Reducing the overshoot was prioritized when adjusting the gain in the circuit using the two potentiometers. The overall gain of the system that produced the least overshoot was found to be about 13.
 
