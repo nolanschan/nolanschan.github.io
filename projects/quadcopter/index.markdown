@@ -14,6 +14,10 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
+— [Flight Mechanics](#flight-mechanics) <br>
+— [Inertial Measurement Unit (IMU)](#inertial-measurement-unit-imu) <br>
+— [RC System](#rc-system) <br>
+— [PID Controller](#pid-controller) <br>
 [System Block Diagram](#system-block-diagram) <br>
 [Hardware Design Process](#hardware-design-process) <br>
 [Initial Testing and Design Adjustments](#initial-testing-and-design-adjustments) <br>
