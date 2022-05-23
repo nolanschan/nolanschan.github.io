@@ -14,9 +14,9 @@ layout: default
 [Background / Theory](#background--theory) <br>
 [Connection to Fractals](#connection-to-fractals) <br>
 [Machine Learning Process](#machine-learning-process) <br>
-[--Dataset Selection / Pre-processing](#dataset-selection--pre-processing) <br>
-[--Feature Extraction / Model Training](#feature-extraction--model-training) <br>
-[--Validation Testing](#validation-testing) <br>
+- [Dataset Selection / Pre-processing](#dataset-selection--pre-processing) <br>
+- [Feature Extraction / Model Training](#feature-extraction--model-training) <br>
+- [Validation Testing](#validation-testing) <br>
 [Results and Discussion](#results-and-discussion) <br>
 [Future Work](#future-work) <br>
 [Repository](https://github.com/nolanschan/Speaker-Identification-using-GMMs)
