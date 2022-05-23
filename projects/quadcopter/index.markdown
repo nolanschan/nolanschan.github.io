@@ -12,14 +12,15 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 
 ## Index ##
 
-[Theory]: (#theory) </br>
-[System Block Diagram]: (#system-block-diagram) </br>
-[Hardware Design Process]: (#hardware-design-process) </br>
-[Initial Testing and Design Adjustments]: (#initial-testing-and-design-adjustments) </br>
-[Flight Controller Software]: (#flight-controller-software) </br>
-[PID Tuning]: (#pid-turning) </br>
-[Results and Analysis]: (#results-and-analysis) </br>
-[Repository]: (https://github.com/nolanschan/Arduino-Quadcopter)
+[Summary / tl;dr](#summary--tldr) </br>
+[Theory](#theory) </br>
+[System Block Diagram](#system-block-diagram) </br>
+[Hardware Design Process](#hardware-design-process) </br>
+[Initial Testing and Design Adjustments](#initial-testing-and-design-adjustments) </br>
+[Flight Controller Software](#flight-controller-software) </br>
+[PID Tuning](#pid-tuning) </br>
+[Results and Analysis](#results-and-analysis) </br>
+[Repository](https://github.com/nolanschan/Arduino-Quadcopter)
 
 ## Summary / tl;dr ##
 
