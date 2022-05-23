@@ -27,7 +27,7 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 
 ### Procedures ###
   - Converted analog input (sine wave) to digital signal using Arduino ADC
-  - Converted digital signal to analog output using MCP4921 IC chip
+  - Converted digital signal to analog output using MCP4921 IC chip (DAC)
   - Increased clock rate and repeated procedures
 
 ### Results ###
