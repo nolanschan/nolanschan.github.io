@@ -85,7 +85,7 @@ Additional code is also added to the original code to write to the ADC clock reg
 The full code is available in the repository <a ref="https://github.com/nolanschan/Arduino-ADC-DAC">here</a>.
 
 ## Results and Discussion ##
-The ADC/DAC system is tested at various frequencies between 10 – 10kHz in order to observe the differences in the output due to clock rate/sampling frequency. For all results, the default clock rate input/output is shown in the left, and the faster clock rate input/output is shown on the right. It should be noted that due to technical issues with the oscilloscope probes, that the amplitude shown are not accurate. However, they were tested to be experimentally equivalent.
+The ADC/DAC system is tested at various frequencies between 10 – 10kHz in order to observe the differences in the output due to clock rate/sampling frequency. For all results, the default clock rate input/output is shown in the left, and the faster clock rate input/output is shown on the right. It should be noted that due to technical issues with the oscilloscope probes, the amplitude shown are not accurate. However, they were tested to be experimentally equivalent.
 
 At 10Hz and 100Hz, there is no noticable difference between the results obtained with the default clock rate and the faster clock rate. Both results show a faithful replication of the original input signal. However, at 1k+Hz, the difference in resolution due to the clock rate starts to become visible.
 
