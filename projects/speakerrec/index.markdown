@@ -132,7 +132,7 @@ You can read more about them (and about MFCCs as well) [here](https://wiki.aalto
 
 ### Gaussian Mixture Models ###
 
-Gaussian Mixture Models (GMM) is a commonly-used method in unsupervised machine learning. A lot of information, as well as the math behind it, can be found on this [blog](https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95) (, from which I also grabbed some images below). For the purpose of this project, here's a brief conceptual summary.
+Gaussian Mixture Models (GMM) is a commonly-used method in unsupervised machine learning. A lot of information, as well as the math behind it, can be found on this [blog](https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95)(, from which I also grabbed some images below). For the purpose of this project, here's a brief conceptual summary.
 
 Let's say we've extracted the features from our dataset, and plotted on a graph, they look like this:
 
@@ -142,7 +142,7 @@ We can see pretty clearly that they can easily be grouped into 2 clusters like t
 
 <img src="/projects/speakerrec/assets/gmm2.png">
 
-This is the basis behind another popular alagorithm, "K-means clustering". This method finds the means, or centroid, of each cluster (μ1 and μ2 in the image) and their distances from each datapoint. The datapoints are grouped into a cluster based on proximity until the results converge. This is known as a <i>hard clustering method</i>, in which each point belongs to only one cluster.
+This is the basis behind another popular alagorithm, "K-means clustering". This method finds the mean, or centroid, of each cluster (μ1 and μ2 in the image) and their distances from each datapoint. The datapoints are grouped into a cluster based on proximity until the results converge. This is known as a <i>hard clustering method</i>, in which each point belongs to only one cluster.
 
 Gaussian Mixture Models (GMMs), on the other hand, is a <i>soft clustering method</i>. Each cluster is represented by a Gaussian, which describes the probability that the data points belong to that cluster.
 
@@ -160,7 +160,7 @@ Some important differences to note are that data points can belong to more than 
 
 ### Dataset Selection ###
 
-For this project, I used the ["Speech Command Dataset"](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html) created by the TensorFlow and Google AIY teams. It contains 65,000 1-second-long utterances of 30 short words submitted by members of the public through the AIY website. These include commonly-used "command" words (yes, no, stop, on, off), digitals, directions, as well as some miscellaneous words and names.
+For this project, I used the ["Speech Command Dataset"](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html) created by the TensorFlow and Google AIY teams. It contains 65,000 1-second-long utterances of 30 short words submitted by members of the public through the AIY website. These include commonly-used "command" words (yes, no, stop, on, off), digits, directions, as well as some miscellaneous words and names.
 
 My motivation behind using this dataset rather than other popular speech datasets like VoxForge was because of the fact that this project was for a Fractals course. I wanted to have example clips of different people saying the same words multiple times in order to show the self-similarities in the time and frequency domains.
 
