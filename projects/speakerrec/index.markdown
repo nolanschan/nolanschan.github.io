@@ -46,7 +46,7 @@ Speaker recognition: To identify a person based on the characteristics of their 
 
 This is different from speech recognition, which identifies the words spoken, regardless of speaker. 
 
-Speaker recognition can be text-dependent (system can only recognize the speaker when using specific command/trained words) or text-independent (system can recognize recognize the speaker using any words). For example, smart home assistants are text-indepdent — after they learn the user's voice from a (relatively) small amount of voice data, they're able to recognize the user, regardless of what they're saying.
+Speaker recognition can be text-dependent (system can only recognize the speaker when using specific command/trained words) or text-independent (system can recognize the speaker using any words). For example, smart home assistants are text-indepdent — after they learn the user's voice from a (relatively) small amount of voice data, they're able to recognize the user, regardless of what they're saying.
 
 Speaker recognition systems can also be extended to perform speaker verification/authentication. By combining with speech recognition such that the system learns the users' names, such a system can determine whether the speaker is who they say they are. 
 
@@ -76,7 +76,7 @@ How are we humans able to differentiate between and recognize all the voices we 
 
 So this is where the Mel frequency scale comes in. 
 
-The Mel frequency scale is a nonlinear scale which more closely approximates the human auditory system's response to different pitchers, or frequencies. There isn't a standardized formula calculating the Mel frequency equivalent, but here's a popular one:
+The Mel frequency scale is a nonlinear scale which more closely approximates the human auditory system's response to different pitches, or frequencies. There isn't a standardized formula for calculating the Mel frequency equivalent, but here's a popular one:
 
 $$m = 2595\log_{10}(1\ +\ \frac{f}{700})$$
 
