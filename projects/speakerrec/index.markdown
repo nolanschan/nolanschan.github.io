@@ -28,10 +28,10 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 ## Summary / tl;dr ##
 
 ### Process ###
-- Pre-processed voice clips from selected dataset
-- Performed feature extraction with Mel-frequency cepstral coefficients and delta-Mel-frequency cepstral coefficients
-- Trained models using Gaussian Mixture Models (GMM) algorithm
-- Tested validity of models by using unseen voice clips
+- — Pre-processed voice clips from selected dataset
+- — Performed feature extraction with Mel-frequency cepstral coefficients and delta-Mel-frequency cepstral coefficients
+- — Trained models using Gaussian Mixture Models (GMM) algorithm
+- — Tested validity of models by using unseen voice clips
 
 ### Results ###
 Due to the small amount of training data that the models were given, in general, the system was able to correctly recognize the speaker about 2/3 of the time. The exception was when the model was trained on a number of instances of the same word, and then asked to recognize the speaker saying the same word. In that case, the system was able to recognize the speaker 100% of the time.
@@ -108,11 +108,11 @@ Because we're not using the spectrogram images, we need to use some other way to
 A cepstrum is basically the "spectrum of a spectrum". It shows the rate of change/periodicity in the different spectrum bands. For the Mel frequency cepstrum, the power spectrum is mapped to the Mel scale.
 
 Just as we can derive Fourier coefficients for a Fourier series, we can also derive Mel frequency cepstral coefficients (MFCCs) for a MFC. This is commonly done by:
-- - Taking the Fourier Transform of a signal
-- Mapping the power spectrum to Mel scale
-- Taking the log of the Mel-scaled power spectrum
-- Taking the inverse Fourier Transform of the power spectrum to the "quefrency" domain (time in samples)
-- The resulting amplitudes are the cepstral coefficients.
+- — Taking the Fourier Transform of a signal
+- — Mapping the power spectrum to Mel scale
+- — Taking the log of the Mel-scaled power spectrum
+- — Taking the inverse Fourier Transform of the power spectrum to the "quefrency" domain (time in samples)
+- — The resulting amplitudes are the cepstral coefficients.
 
 (You can read more about the MFC on [Wikipedia](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum))
 
@@ -171,9 +171,9 @@ As a first-time project, I decided to use a smaller subset of the dataset. 6 spe
 As the clips were submitted by the public, the quality vary vastly. It also seemed that speakers often recorded clips of the same words consecutively, so there was common background noise in all clips. I wanted to make sure the model was based on the voice and not the background noise as much as possible, so some pre-processing was done before training.
 
 All data were pre-processed manually using Audacity as following:
-- Trim word
-- Align to start
-- Zero-padding for 1-sec clip
+- — Trim word
+- — Align to start
+- — Zero-padding for 1-sec clip
 
 ### Feature Extraction ###
 
