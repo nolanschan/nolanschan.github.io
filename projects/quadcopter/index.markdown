@@ -4,7 +4,7 @@ layout: default
 ---
 # Self-Stabilizing Quadcopter using Arduino #
 
-## Project Overview ##
+## Introduction / Project Overview ##
 
 For our senior capstone design course, our group decided to build an unmanned aerial vehicle (UAV), more commonly known as a drone. None of us knew much about drones in general, but we thought it would be a cool project and a good learning experience. As electrical engineers, our focus was on the control system -- the flight controller, rather than the actual vehicle. While there're many types of UAV's out there, the X-configuration quadcopter is by far the most popular, due to the fact that it can be controlled with a simple flight control system.
 
