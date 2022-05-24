@@ -26,9 +26,9 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 ## Summary / tl;dr ##
 
 ### Procedures ###
-  - Converted analog input (sine wave) to digital signal using Arduino ADC
-  - Converted digital signal to analog output using MCP4921 IC chip (DAC)
-  - Increased clock rate and repeated procedures
+  - — Converted analog input (sine wave) to digital signal using Arduino ADC
+  - — Converted digital signal to analog output using MCP4921 IC chip (DAC)
+  - — Increased clock rate and repeated procedures
 
 ### Results ###
 System was implemented properly and correctly converted analog input to digital signal, then back to analog output. The maximum input frequency at which the default clock rate is able to replicate the input sine wave is ≤ 1kHz, likely at a frequency closer to 100Hz. For the faster clock rate, the highest frequency appears to be around 2k - 5kHz.
