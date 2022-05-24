@@ -108,7 +108,7 @@ Because we're not using the spectrogram images, we need to use some other way to
 A cepstrum is basically the "spectrum of a spectrum". It shows the rate of change/periodicity in the different spectrum bands. For the Mel frequency cepstrum, the power spectrum is mapped to the Mel scale.
 
 Just as we can derive Fourier coefficients for a Fourier series, we can also derive Mel frequency cepstral coefficients (MFCCs) for a MFC. This is commonly done by:
-- Taking the Fourier Transform of a signal
+- - Taking the Fourier Transform of a signal
 - Mapping the power spectrum to Mel scale
 - Taking the log of the Mel-scaled power spectrum
 - Taking the inverse Fourier Transform of the power spectrum to the "quefrency" domain (time in samples)
