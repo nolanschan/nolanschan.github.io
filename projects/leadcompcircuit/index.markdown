@@ -26,6 +26,19 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 
 ## Summary / tl;dr ##
 
+### Process ###
+
+- — Selected components
+- — Designed circuit structure
+- — Designed lead compensator based on given transfer function
+- — Built Simulink model and simulated step response
+- — Built physical circuit and obtained step response
+- — Adjusted component values to optimize circuit: lower overshoot, decrease settling time
+
+### Results ###
+
+Overall, the circuit worked as intended, but was very slow. This meant that the controller was only able to function at a very low frequency. It is possible that this was due to the fact that a single-supply op-amp was used.
+
 ## Op-Amp Selection ##
 
   For this experiment, the TLV2774 op-amp, manufactured by Texas Instruments, was chosen to implement this circuit. This component was one of the op-amps suggested by the lab instructions for use in this experiment. The TLV2774 is a single-supply, rail-to-rail op-amp, with supply voltage from 0 – 6V.
