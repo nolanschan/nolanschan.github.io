@@ -38,7 +38,7 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
     - — Improved flight and self-stabilization performance by tuning PID controller
 
 ### Results ###
-Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly.
+Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly. This was likely due to misalignment between the IMU and vehicle body.
 
 ## Theory ##
 
