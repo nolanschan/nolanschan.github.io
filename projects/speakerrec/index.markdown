@@ -54,7 +54,7 @@ Speaker recognition systems can also be extended to perform speaker verification
 
 Most people are used to seeing voice/sound as a time domain waveform, like this one:
 
-<img src="/projects/speakerrec/assets/6_yes_1_wave.png">
+<img src="/projects/speakerrec/assets/6_yes_1_wave.png" width="800">
 
 This is the waveform of one of the speakers in the dataset saying the word "yes", plotted using Librosa in Python. Knowing what word was said, you can kinda see in the wave the structure of the word: "ye-s". But as we learned in school/engineering classes, time domain representation doesn't give us a whole lot of useful information to work with. So we use frequency domain instead.
 
