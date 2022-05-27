@@ -122,5 +122,3 @@ Unfortunately, we were not able to test our theory or remedy the design before t
 ## Repository ##
 
 The full code/repository can be found <a href="https://github.com/nolanschan/Arduino-Quadcopter">here</a>.
-
-{% include vimeoPlayer.html id=page.vimeoId %}
