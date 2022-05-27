@@ -2,9 +2,11 @@
 title: Self-Stabilizing Quadcopter using Arduino (EE400D - Electrical Engineering Design Project) 
 layout: default
 ---
+
 ---
 vimeoId: 714344300
 ---
+
 # Self-Stabilizing Quadcopter using Arduino #
 
 ## Introduction / Project Overview ##
