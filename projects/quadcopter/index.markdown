@@ -113,6 +113,8 @@ We tuned the controllers by adjusting the gain coefficients manually in the code
 
 By the deadline of our project, we had a mostly functioning quadcopter, but unfortunately it did not work perfectly.
 
+<iframe src="https://player.vimeo.com/video/714344300?h=37aa9a706a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="800" height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="EE 400D Project Demo"></iframe>
+
 There were two main issues that we ran into: Our quadcopter had a tendency to drift backwards, and it would sometimes unexpectedly "jump", or greatly increase its altitude. We theorized that this was due to the mounting of the IMU chip on the quadcopter. Following some online tutorials, we had mounted the IMU onto the Arudino UNO using mounting putty. However, this caused the IMU to be misaligned with the body of the quadcopter. We believed that this constant error caused the Integral controller to overcompensate, resulting in a constant drift in the trajectory of the quadcopter. This likely also led to a phenomenon called "integral windup", where accumulation of the integral error exceeds the saturation limit of the controller, which can lead to excessive overshooting, as seen in the "jumps" in altitude.
 
 Unfortunately, we were not able to test our theory or remedy the design before the deadline, as the last crash on our last testing day resulted in a broken wire to the power distribution board (PDB) which was not discovered until later.
