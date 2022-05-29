@@ -27,13 +27,13 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 ## Summary / tl;dr ##
 
 ### Process ###
-
-- — Selected components
-- — Designed circuit structure
-- — Designed lead compensator based on given transfer function
-- — Built Simulink model and simulated step response
-- — Built physical circuit and obtained step response
-- — Adjusted component values to optimize circuit: lower overshoot, decrease settling time
+<ul style="list-style-type:disc;line-height:100%">
+	<li>Selected components</li>
+	<li>Designed circuit structure</li>
+	<li>Designed lead compensator based on given transfer function</li>
+	<li>Built Simulink model and simulated step response</li>
+	<li>Built physical circuit and obtained step response</li>
+	<li>Adjusted component values to optimize circuit: lower overshoot, decrease settling time</li></ul>
 
 ### Results ###
 
