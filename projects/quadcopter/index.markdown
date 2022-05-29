@@ -81,7 +81,7 @@ The Proportional + Integral + Derivative (PID) controller is a feedback controll
 
 The Proportional controller is a simple controller where the output is the product of the Proportional gain and the present error.
 
-THe Integral controller outputs the product of the Integral gain and the integral of previous errors.
+The Integral controller outputs the product of the Integral gain and the integral of previous errors.
 
 The Derivative controller output is based on the derivative, or rate of change, of the error to estimate the future trend of the error.
 
