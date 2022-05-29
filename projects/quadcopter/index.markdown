@@ -5,13 +5,13 @@ layout: default
 
 # Self-Stabilizing Quadcopter using Arduino #
 
-## Introduction / Project Overview ##
+## <u>Introduction / Project Overview</u> ##
 
 For our senior capstone design course, our group decided to build an unmanned aerial vehicle (UAV), more commonly known as a drone. None of us knew much about drones in general, but we thought it would be a cool project and a good learning experience. As electrical engineers, our focus was on the control system -- the flight controller, rather than the actual vehicle. While there're many types of UAV's out there, the X-configuration quadcopter is by far the most popular, due to the fact that it can be controlled with a simple flight control system.
 
 Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form.
 
-## Index ##
+## <u>Index</u> ##
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
@@ -27,7 +27,7 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 [Results and Analysis](#results-and-analysis) <br>
 [Repository](https://github.com/nolanschan/Arduino-Quadcopter)
 
-## Summary / tl;dr ##
+## <u>Summary / tl;dr</u> ##
 
 ### Procedures ###
 
@@ -46,7 +46,7 @@ Quadcopter was functional, but had a tendency to drift backwards and would occas
 
 [(Jump down to demo video)](#results-and-analysis)
 
-## Theory ##
+## <u>Theory</u> ##
 
 ### Flight Mechanics ###
 
