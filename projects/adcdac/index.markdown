@@ -87,7 +87,7 @@ The Arduino program code used is provided in the lab instructions with some mino
 
 Additional code is also added to the original code to write to the ADC clock registers in order to increase the clock rate.
 
-The full code is available in the repository <a ref="https://github.com/nolanschan/Arduino-ADC-DAC">here</a>.
+The full code is available in the repository [here](https://github.com/nolanschan/Arduino-ADC-DAC).
 
 ## Results and Discussion ##
 The ADC/DAC system is tested at various frequencies between 10 – 10kHz in order to observe the differences in the output due to clock rate/sampling frequency. For all results, the default clock rate input/output is shown in the left, and the faster clock rate input/output is shown on the right. It should be noted that due to technical issues with the oscilloscope probes, the amplitude shown are not accurate. However, they were tested to be experimentally equivalent.
