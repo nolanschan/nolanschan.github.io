@@ -11,18 +11,6 @@ For our senior capstone design course, our group decided to build an unmanned ae
 
 Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form.
 
-- test
-  - list
-- here
-
-  test
-  list
-  here
-  
-- one
-  - more
-  - list
-
 ## Index ##
 
 [Summary / tl;dr](#summary--tldr) <br>
@@ -42,13 +30,19 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 ## Summary / tl;dr ##
 
 ### Procedures ###
-- Researched quadcopter flight mechanics, modeling, components, and control <br>
-- Performed cost analysis and component selection to design, assemble, and test quadcopter <br>
-- Programmed and debugged flight controller code using Arduino <br>
-  - Implemented complementary filter to process signals from IMU <br>
-  - Set up and calibrated quadcopter and RC system using calibration code <br>
-- Implemented PID controller to control quadcopter movement <br>
-  - Improved flight and self-stabilization performance by tuning PID controller
+
+<ul style="list-style-type:disc">
+  <li>Researched quadcopter flight mechanics, modeling, components, and control</li> <br>
+  <ul style="list-style-type:circle">
+    <li>Performed cost analysis and component selection to design, assemble, and test quadcopter</li></ul> <br>
+  <li>Programmed and debugged flight controller code using Arduino</li> <br>
+  <ul style="list-style-type:circle">
+    <li>Implemented complementary filter to process signals from IMU</li> <br>
+    <li>Set up and calibrated quadcopter and RC system using calibration code</li></ul> <br>
+  <li>Implemented PID controller to control quadcopter movement</li> <br>
+  <ul style="list-style-type:circle">
+    <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul>
+  </ul>
 
 ### Results ###
 Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly. This was likely due to misalignment between the IMU and vehicle body.
