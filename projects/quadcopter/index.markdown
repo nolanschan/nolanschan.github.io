@@ -11,6 +11,18 @@ For our senior capstone design course, our group decided to build an unmanned ae
 
 Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form.
 
+- test
+- list
+- here
+
+  test
+  list
+  here
+  
+- one
+-   more
+-   list
+
 ## Index ##
 
 [Summary / tl;dr](#summary--tldr) <br>
