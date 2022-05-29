@@ -32,15 +32,12 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 ### Procedures ###
 
 <ul style="list-style-type:disc;line-height:100%">
-  <li>Researched quadcopter flight mechanics, modeling, components, and control</li>
-  <ul style="list-style-type:circle;line-height:100%">
+  <li>Researched quadcopter flight mechanics, modeling, components, and control</li><ul style="list-style-type:circle;line-height:100%">
     <li>Performed cost analysis and component selection to design, assemble, and test quadcopter</li></ul>
-  <li>Programmed and debugged flight controller code using Arduino</li>
-  <ul style="list-style-type:circle;line-height:100%">
+  <li>Programmed and debugged flight controller code using Arduino</li><ul style="list-style-type:circle;line-height:100%">
     <li>Implemented complementary filter to process signals from IMU</li>
     <li>Set up and calibrated quadcopter and RC system using calibration code</li></ul>
-  <li>Implemented PID controller to control quadcopter movement</li>
-  <ul style="list-style-type:circle;line-height:100%">
+  <li>Implemented PID controller to control quadcopter movement</li><ul style="list-style-type:circle;line-height:100%">
     <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul>
   </ul>
 
