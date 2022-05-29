@@ -88,7 +88,7 @@ The Derivative controller output is based on the derivative, or rate of change, 
 
 ## System Block Diagram ##
 
-<img src="/projects/quadcopter/blockdiagram.png" width="800">
+<img src="/projects/quadcopter/assets/blockdiagram.png" width="800">
 
 ## Hardware Design Process ##
 
@@ -108,7 +108,9 @@ Among other tasks, I was in charge of the flight controller software. With no pr
 
 With our hardware design finalized and our flight controller written, the final step was to tune, or determine the gain for, our PID controller. While there are various ways to design and tune a PID controller, most of them required having a model of the system available. Earlier in the design process, I had looked into whether it would be possible to determine a model for our system. However, after doing some research, including reading a few master's thesis papers, I found that to properly model the quadcopter would require several measurements that we did not have the equipment to take. So it was decided that we would perform our PID tuning the way that it's most commonly done for quadcopters: by trial and error.
 
-We tuned the controllers by adjusting the gain coefficients manually in the code, and observing their effects.
+We tuned the controllers by adjusting the gain coefficients manually in the code, and observing their effects. One method that we implemented was by tying the quadcopter to a PVC pipe such that it was only able to rotate along one axis at a time.
+
+<img src="/projects/quadcopter/assets/pidtuning.jpg">
 
 ## Results and Analysis ##
 
