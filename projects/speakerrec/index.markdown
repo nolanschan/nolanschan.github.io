@@ -178,6 +178,8 @@ All data were pre-processed manually using Audacity as following:
 
 ### Feature Extraction ###
 
+Using the python_speech_features library, 20 Mel frequency ceptral coefficients and 20 delta Mel frequency cepstral coefficients are extracted for a total of 40 training features.
+  
     import numpy as np
     from sklearn import preprocessing
     import python_speech_features as mfcc
@@ -217,6 +219,8 @@ All data were pre-processed manually using Audacity as following:
 
 ### Model Training ###
 
+Files to be used for training are enrolled in the text file, grouped by speaker. Features (MFCCs and delta-MFCCs) are extracted for each file and concatenated in a vector. When the specified number of files (10/speaker in this case) has been reached, model training is done using the sklearn GMM function. The trained model is then saved in a separate folder to be used for testing.
+
     import pickle as cPickle
     import numpy as np
     from scipy.io.wavfile import read
@@ -234,7 +238,7 @@ All data were pre-processed manually using Audacity as following:
     file_paths = open(train_file,'r')
 
     count = 1
-    # Extracting features for each speaker (12 files per speakers)
+    # Extracting features for each speaker (10 files per speakers)
     features = np.asarray(())
     for path in file_paths:
         path = path.strip()
@@ -264,6 +268,8 @@ All data were pre-processed manually using Audacity as following:
         count = count + 1
 
 ### Validation Testing ###
+
+Files to be tested are enrolled in the text file. Each file is compared with the trained models. The most similar is declared the "winner".
 
     import os
     import pickle as cPickle
