@@ -78,7 +78,11 @@ Navigational commands are sent to the flight controller using a standard RC tran
 
 In order to control an inherently unstable system such as a quadcopter, a feedback controller is needed. 
 
-The Proportional + Integral + Derivative (PID) controller is a feedback controller that is often used to control a quadcopter. The PID controller can be viewed as a controller which takes into account the past, present, and future errors of the system.
+The Proportional + Integral + Derivative (PID) controller is a feedback controller that is often used to control a quadcopter. The PID controller can be viewed as a controller which takes into account the past, present, and future errors of the system, and is described mathematically by the following equation:
+
+$$u(t)\ =\ K_pe(t)\ +\ K_i\int e(t) dt\ +\ K_p\frac{de}{dt},$$
+
+where $$u$$ is the output of the PID controller/the control signal to the plant, $$e$$ is the tracking error, $$K_p$$ is the proportional gain, $$K_i$$ is the integral gain, and $$K_d$$ is the derivative gain.
 
 The Proportional controller is a simple controller where the output is the product of the Proportional gain and the present error.
 
