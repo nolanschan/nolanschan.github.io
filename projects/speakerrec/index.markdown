@@ -221,139 +221,106 @@ def extract_features(audio,rate):
   return combined
 {% endhighlight %}
 
-    import numpy as np
-    from sklearn import preprocessing
-    import python_speech_features as mfcc
- 
-    def calculate_delta(array):
-        """Calculate and returns the delta of given feature vector matrix"""
- 
-        rows,cols = array.shape
-        deltas = np.zeros((rows,20))
-        N = 2
-        for i in range(rows):
-            index = []
-            j = 1
-            while j <= N:
-                if i-j < 0:
-                    first = 0
-                else:
-                    first = i-j
-                if i+j > rows-1:
-                    second = rows-1
-                else:
-                    second = i+j
-                index.append((second,first))
-                j+=1
-            deltas[i] = ( array[index[0][0]]-array[index[0][1]] + (2 * (array[index[1][0]]-array[index[1][1]])) ) / 10
-        return deltas
- 
-    def extract_features(audio,rate):
-        """extract 20 dim mfcc features from an audio, performs CMS and combines
-        delta to make it 40 dim feature vector"""   
- 
-        mfcc_feat = mfcc.mfcc(audio,rate, 0.025, 0.01,20,appendEnergy = True)
-        mfcc_feat = preprocessing.scale(mfcc_feat)
-        delta = calculate_delta(mfcc_feat)
-        combined = np.hstack((mfcc_feat,delta))
-        return combined
-
 ### Model Training ###
 
 Files to be used for training are enrolled in the text file, grouped by speaker. Features (MFCCs and delta-MFCCs) are extracted for each file and concatenated in a vector. When the specified number of files (10/speaker in this case) has been reached, model training is done using the sklearn GMM function. The trained model is then saved in a separate folder to be used for testing.
 
-    import pickle as cPickle
-    import numpy as np
-    from scipy.io.wavfile import read
-    from sklearn.mixture import GaussianMixture
-    from speakerfeatures import extract_features
-    import warnings
-    warnings.filterwarnings("ignore")
-
-    #path to training data
-    source   = "training_data\\"  
-
-    #path where training speakers will be saved
-    dest = "speaker_models\\"
-    train_file = "training_set_enroll.txt"
-    file_paths = open(train_file,'r')
-
-    count = 1
-    # Extracting features for each speaker (11 files per speakers)
-    features = np.asarray(())
-    for path in file_paths:
-        path = path.strip()
-        print(path)
-
-        # read the audio
-        sr,audio = read(source + path)
-
-        # extract 40 dimensional MFCC & delta MFCC features
-        vector   = extract_features(audio,sr)
-
-        if features.size == 0:
-            features = vector
-        else:
-            features = np.vstack((features, vector))
-        # when features of 11 files of speaker are concatenated, then do model training
-        if count == 11:
-            gmm = GaussianMixture(n_components = 8, max_iter = 200, covariance_type='diag', n_init = 3)
-            gmm.fit(features)
-
-            # dumping the trained gaussian model
-            picklefile = path.split("-")[0]+".gmm"
-            cPickle.dump(gmm,open(dest + picklefile,'wb'))
-            print('+ modeling completed for speaker:',picklefile," with data point = ",features.shape)
-            features = np.asarray(())
-            count = 0
-        count = count + 1
+{% highlight ruby %}
+import pickle as cPickle
+import numpy as np
+from scipy.io.wavfile import read
+from sklearn.mixture import GaussianMixture
+from speakerfeatures import extract_features
+import warnings
+warnings.filterwarnings("ignore")
+ 
+#path to training data
+source   = "training_data\\"  
+ 
+#path where training speakers will be saved
+dest = "speaker_models\\"
+train_file = "training_set_enroll.txt"
+file_paths = open(train_file,'r')
+ 
+count = 1
+# Extracting features for each speaker (11 files per speakers)
+features = np.asarray(())
+for path in file_paths:
+    path = path.strip()
+    print(path)
+ 
+    # read the audio
+    sr,audio = read(source + path)
+ 
+    # extract 40 dimensional MFCC & delta MFCC features
+    vector   = extract_features(audio,sr)
+ 
+    if features.size == 0:
+        features = vector
+    else:
+        features = np.vstack((features, vector))
+    # when features of 11 files of speaker are concatenated, then do model training
+    if count == 11:
+        gmm = GaussianMixture(n_components = 8, max_iter = 200, covariance_type='diag', n_init = 3)
+        gmm.fit(features)
+ 
+        # dumping the trained gaussian model
+        picklefile = path.split("-")[0]+".gmm"
+        cPickle.dump(gmm,open(dest + picklefile,'wb'))
+        print('+ modeling completed for speaker:',picklefile," with data point = ",features.shape)
+        features = np.asarray(())
+        count = 0
+    count = count + 1
+{% endhighlight %}
 
 ### Validation Testing ###
 
 Files to be tested are enrolled in the text file. Each file is compared with the trained models. The most similar is declared the "winner".
 
-    import os
-    import pickle as cPickle
-    import numpy as np
-    from scipy.io.wavfile import read
-    from speakerfeatures import extract_features
-    import warnings
-    warnings.filterwarnings("ignore")
-    import time
+{% highlight ruby %}
+import os
+import pickle as cPickle
+import numpy as np
+from scipy.io.wavfile import read
+# from speakerfeatures import extract_features
+import warnings
+warnings.filterwarnings("ignore")
+import time
+ 
+#path to training data
+source   = "test_data\\"
+modelpath = "speaker_models\\"
+test_file = "test_set_enroll.txt"
+file_paths = open(test_file,'r')
+ 
+gmm_files = [os.path.join(modelpath,fname) for fname in
+              os.listdir(modelpath) if fname.endswith('.gmm')]
+ 
+#Load the Gaussian Speaker Models
+models    = [cPickle.load(open(fname,'rb')) for fname in gmm_files]
+speakers   = [fname.split("\\")[-1].split(".gmm")[0] for fname
+              in gmm_files]
+ 
+# Read the test directory and get the list of test audio files
+for path in file_paths:   
+ 
+    path = path.strip()
+    print(path)
+    sr,audio = read(source + path)
+    vector   = extract_features(audio,sr)
+ 
+    log_likelihood = np.zeros(len(models)) 
+ 
+    for i in range(len(models)):
+        gmm    = models[i]  #checking with each model one by one
+        scores = np.array(gmm.score(vector))
+        log_likelihood[i] = scores.sum()
+ 
+    winner = np.argmax(log_likelihood)
+    print("\tdetected as - ", speakers[winner])
+    time.sleep(1.0)
+{% endhighlight %}
 
-    #path to training data
-    source   = "test_data\\"
-    modelpath = "speaker_models\\"
-    test_file = "test_set_enroll.txt"
-    file_paths = open(test_file,'r')
-
-    gmm_files = [os.path.join(modelpath,fname) for fname in
-                  os.listdir(modelpath) if fname.endswith('.gmm')]
-
-    #Load the Gaussian Speaker Models
-    models    = [cPickle.load(open(fname,'rb')) for fname in gmm_files]
-    speakers   = [fname.split("\\")[-1].split(".gmm")[0] for fname
-                  in gmm_files]
-
-    # Read the test directory and get the list of test audio files
-    for path in file_paths:   
-
-        path = path.strip()
-        print(path)
-        sr,audio = read(source + path)
-        vector   = extract_features(audio,sr)
-
-        log_likelihood = np.zeros(len(models)) 
-
-        for i in range(len(models)):
-            gmm    = models[i]  #checking with each model one by one
-            scores = np.array(gmm.score(vector))
-            log_likelihood[i] = scores.sum()
-
-        winner = np.argmax(log_likelihood)
-        print("\tdetected as - ", speakers[winner])
-        time.sleep(1.0)
-    
 ## Results and Discussion ##
 
 Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 2/3 of the time at identifying the speaker. The only exception is when the model is trained on the same word (4x) used for testing. In such cases, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
