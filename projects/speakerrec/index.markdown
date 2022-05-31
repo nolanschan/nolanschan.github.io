@@ -178,6 +178,16 @@ All data were pre-processed manually using Audacity as following:
   <li>Zero-padding for 1-sec clip</li></ul>
 <p></p>
 
+<pre><code>Here's some more code
+Supposedly.
+It's not really code.
+</pre></code>
+
+    This is code
+    No not really
+  
+  Regular text
+  
 ### Feature Extraction ###
 
 Using the python_speech_features library, 20 Mel frequency ceptral coefficients and 20 delta Mel frequency cepstral coefficients are extracted for a total of 40 training features.
