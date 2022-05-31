@@ -48,8 +48,8 @@ a:hover {
 }
 
 p, pre { margin-bottom: 15px; }
-ul, ol { padding: 0 0 18px 30px; }
-ol li, ul li { margin-top: 10px; margin-bottom: 10px; }
+ul, ol { padding: 0 0 1px 30px; }
+ol li, ul li { margin-top: 1px; margin-bottom: 1px; }
 em, i { font-style: italic; }
 strong, b { font-weight: bold; }
 small { font-size: 0.85em; }
@@ -83,6 +83,7 @@ h1 {
 h2 {
 	font-size: 17px;
 	margin: 0 0 10px 0;
+	text-decoration: underline;
 }
 h3 {
 	font-size: 15px;
