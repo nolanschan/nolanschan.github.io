@@ -33,6 +33,7 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
   <li>Performed feature extraction with Mel-frequency cepstral coefficients and delta-Mel-frequency cepstral coefficients</li>
   <li> Trained models using Gaussian Mixture Models (GMM) algorithm</li>
   <li>Tested validity of models by using unseen voice clips</li></ul>
+<p></p>
 
 ### Results ###
 Due to the small amount of training data that the models were given, in general, the system was able to correctly recognize the speaker about 2/3 of the time. The exception was when the model was trained on a number of instances of the same word, and then asked to recognize the speaker saying the same word. In that case, the system was able to recognize the speaker 100% of the time.
@@ -175,6 +176,7 @@ All data were pre-processed manually using Audacity as following:
 <ul style="list-style-type:disc;line-height:100%"><li>Trim word</li>
   <li>Align to start</li>
   <li>Zero-padding for 1-sec clip</li></ul>
+<p></p>
 
 ### Feature Extraction ###
 
