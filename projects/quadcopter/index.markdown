@@ -5,13 +5,15 @@ layout: default
 
 # Self-Stabilizing Quadcopter using Arduino #
 
-## <u>Introduction / Project Overview</u> ##
+## Introduction / Project Overview ##
+<p></p>
 
 For our senior capstone design course, our group decided to build an unmanned aerial vehicle (UAV), more commonly known as a drone. None of us knew much about drones in general, but we thought it would be a cool project and a good learning experience. As electrical engineers, our focus was on the control system -- the flight controller, rather than the actual vehicle. While there're many types of UAV's out there, the X-configuration quadcopter is by far the most popular, due to the fact that it can be controlled with a simple flight control system.
 
 Our goal was to use commercially-available parts to build a quadcopter which would be capable of self-stabilization. We chose to use an Arduino UNO as our flight controller since it was something we all had worked with before in some way, shape, or form.
 
-## <u>Index</u> ##
+## Index ##
+<p></p>
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
@@ -27,7 +29,8 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 [Results and Analysis](#results-and-analysis) <br>
 [Repository](https://github.com/nolanschan/Arduino-Quadcopter)
 
-## <u>Summary / tl;dr</u> ##
+## Summary / tl;dr ##
+<p></p>
 
 ### Procedures ###
 
@@ -47,7 +50,8 @@ Quadcopter was functional, but had a tendency to drift backwards and would occas
 
 [(Jump down to demo video)](#results-and-analysis)
 
-## <u>Theory</u> ##
+## Theory ##
+<p></p>
 
 ### Flight Mechanics ###
 
@@ -92,10 +96,12 @@ The Integral controller outputs the product of the Integral gain and the integra
 The Derivative controller output is based on the derivative, or rate of change, of the error to estimate the future trend of the error.
 
 ## System Block Diagram ##
+<p></p>
 
 <img src="/projects/quadcopter/assets/blockdiagram.png" width="800">
 
 ## Hardware Design Process ##
+<p></p>
 
 Since none of us knew much about selecting quadcopter components, we began by looking into build kits. However, we quickly found that most of them were not only beyond our budget, but meant to be used with manufactured/pre-programmed flight controller chips, which would defeat the purpose of our project.
 
@@ -106,10 +112,12 @@ After further research, we made our initial purchases, which included a 220mm wh
 Upon assembling and testing our quadcopter, we found that it was too heavy! It took almost full throttle for our vehicle to start lifting, and it seemed off-balance. In our inexperience, we had neglected to properly account for the weight of all the components together! Oops. Going back to the drawing board, we decided to use a smaller battery, trading battery-life for less weight. We also opted for 3-blade propellers, which would help generate more lift.
 
 ## Flight Controller Software ##
+<p></p>
 
 Among other tasks, I was in charge of the flight controller software. With no prior knowledge about flight controllers, I looked into all the open-source flight controllers I could find. The final version of our flight controller heavily references <a href="http://www.brokking.net/ymfc-al_main.html">Project YMFC-AL</a> by Joop Brokking, whose informative and well-documented code and process contributed greatly to our understanding and implementation of our own project. His code was used as a base for our flight controller program.
 
 ## PID Tuning ##
+<p></p>
 
 With our hardware design finalized and our flight controller written, the final step was to tune, or determine the gain for, our PID controller. While there are various ways to design and tune a PID controller, most of them required having a model of the system available. Earlier in the design process, I had looked into whether it would be possible to determine a model for our system. However, after doing some research, including reading a few master's thesis papers, I found that to properly model the quadcopter would require several measurements that we did not have the equipment to take. So it was decided that we would perform our PID tuning the way that it's most commonly done for quadcopters: by trial and error.
 
@@ -118,6 +126,7 @@ We tuned the controllers by adjusting the gain coefficients manually in the code
 <img src="/projects/quadcopter/assets/pidtuning.jpg">
 
 ## Results and Analysis ##
+<p></p>
 
 By the deadline of our project, we had a mostly functioning quadcopter, but unfortunately it did not work perfectly.
 
@@ -129,5 +138,6 @@ There were two main issues that we ran into: Our quadcopter had a tendency to dr
 Unfortunately, we were not able to test our theory or remedy the design before the deadline, as a crash on our last testing day resulted in a broken wire to the power distribution board (PDB) which was not discovered until later.
 
 ## Repository ##
+<p></p>
 
 The full code/repository can be found <a href="https://github.com/nolanschan/Arduino-Quadcopter">here</a>.
