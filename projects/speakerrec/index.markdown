@@ -5,12 +5,14 @@ layout: default
 # Speaker Recognition using Python and Machine Learning #
 
 ## Introduction / Project Overview ##
+<p></p>
 
 I had been wanting to learn more about machine learning (as well as Python), and I was really excited to take a "Neural Network and Fuzzy Logic" course my last semester. But unfortunately, it got canceled due to low enrollment. So when I found out that my Fractals class had a final project with a free choice of topic, I took advantage of the opportunity and did mine on machine learning.
 
 For this project, I used the popular machine learning algorithm Gaussian Mixture Models (GMM) to train models to recognize the speakers of some commonly used "command" words. This project was implemented in Python, which I'm still new to, so I followed a base code and modified it to run on Python 3. 
 
 ## Index ##
+<p></p>
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Background / Theory](#background--theory) <br>
@@ -26,6 +28,7 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 [Repository](https://github.com/nolanschan/Speaker-Identification-using-GMMs)
 
 ## Summary / tl;dr ##
+<p></p>
 
 ### Process ###
 <ul style="list-style-type:disc;line-height:100%">
@@ -41,6 +44,7 @@ Due to the small amount of training data that the models were given, in general,
 It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.
 
 ## Background / Theory ##
+<p></p>
 
 ### Speaker Recognition ###
 
@@ -155,10 +159,12 @@ Some important differences to note are that data points can belong to more than 
 <img src="/projects/speakerrec/assets/gmm4.png">
 
 ## Connection to Fractals ##
+<p></p>
 
 
 
 ## Machine Learning Process ##
+<p></p>
 
 ### Dataset Selection ###
 
@@ -325,10 +331,12 @@ for path in file_paths:
 <p></p>
 
 ## Results and Discussion ##
+<p></p>
 
 Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The only exception is when the model is trained on the same word (4x) used for testing. In such cases, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
 
 ## Future Work ##
+<p></p>
 
 To improve performance, more voice samples (available in the main Speech Commands Dataset) will likely be needed for training. Data can also be augmented (for example by introducing noise) in order to increases the robustness of the model.
 
@@ -337,5 +345,6 @@ Other ML/DL algorithms could be implemented instead/in addition to GMM.
 It should also be possible to extend this model to perform speech recognition and/or speaker verification.
 
 ## Repository ##
+<p></p>
 
 The full code can be found in the repository [here](https://github.com/nolanschan/Speaker-Identification-using-GMMs).
