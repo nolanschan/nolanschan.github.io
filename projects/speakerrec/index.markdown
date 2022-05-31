@@ -115,7 +115,7 @@ Just as we can derive Fourier coefficients for a Fourier series, we can also der
   <li>Taking the log of the Mel-scaled power spectrum</li>
   <li>Taking the inverse Fourier Transform of the power spectrum to the "quefrency" domain (time in samples)</li>
   <li>The resulting amplitudes are the cepstral coefficients.</li></ul>
-
+<p></p>
 (You can read more about the MFC on [Wikipedia](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum))
 
 Although MFCCs give us information about the spectrum of a speech signal, they're limited to a particular frame. This is similar to the study of motion: A moving  particle can be described by its (instantaneous) position, but to know its motion, we need to find its velocity and acceleration, the first and second derivatives of its position. Likewise, speech signals are time-varying, and there's information in the way the MFCCs change.
