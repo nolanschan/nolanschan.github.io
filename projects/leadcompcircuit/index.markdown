@@ -34,6 +34,7 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 	<li>Built Simulink model and simulated step response</li>
 	<li>Built physical circuit and obtained step response</li>
 	<li>Adjusted component values to optimize circuit: lower overshoot, decrease settling time</li></ul>
+<p></p>
 
 ### Results ###
 
