@@ -10,10 +10,10 @@ Hello! I'm Nolan. I just graduated with a BSEE (Controls concentration) from Cal
 My other hobbies include reading (books as well as following down the Wikipedia rabbit hole), photography, traveling, food, and horticulture (particularly bonsais, but I'm planning to expand to hydro/aquaponics one of these days). Oh, and hanging out with my dog.
 
 ### Skills: ###
--  Programming Languages: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly
--  Electronic Design Automation: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
--  Computer-Aided Design: SolidWorks (Certified SolidWorks Associate), AutoCAD
--  Development Kits: Arduino, Diligent Basys 3, STM32 Discovery
--  Software: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
--  Benchtop Equipment: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
--  Languages: Cantonese, Mandarin, Japanese
+-  <u>Programming Languages</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly
+-  <u>Electronic Design Automation</u>: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
+-  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD
+-  <u>Development Kits</u>: Arduino, Diligent Basys 3, STM32 Discovery
+-  <u>Software</u>: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+-  <u>Benchtop Equipment</u>: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
+-  <u>Languages</u>: Cantonese, Mandarin, Japanese
