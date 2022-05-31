@@ -39,7 +39,7 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
     <li>Set up and calibrated quadcopter and RC system using calibration code</li></ul>
   <li>Implemented PID controller to control quadcopter movement</li><ul style="list-style-type:circle;line-height:100%">
     <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul></ul>
-
+<p></p>
 ### Results ###
 
 Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly. This was likely due to misalignment between the IMU and vehicle body.
