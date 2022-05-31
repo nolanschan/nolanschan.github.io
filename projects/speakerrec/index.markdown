@@ -177,16 +177,6 @@ All data were pre-processed manually using Audacity as following:
   <li>Align to start</li>
   <li>Zero-padding for 1-sec clip</li></ul>
 <p></p>
-
-<pre><code>Here's some more code
-Supposedly.
-It's not really code.
-</code></pre>
-
-    This is code
-    No not really
-  
-  Regular text
   
 ### Feature Extraction ###
 
