@@ -181,7 +181,7 @@ All data were pre-processed manually using Audacity as following:
 <pre><code>Here's some more code
 Supposedly.
 It's not really code.
-</pre></code>
+</code></pre>
 
     This is code
     No not really
