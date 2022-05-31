@@ -5,12 +5,14 @@ layout: default
 # Analog-to-Digital / Digital-to-Analog Conversion using Arduino #
 
 ## Project Overview ##
+<p></p>
 
 Part 2 of Benchtop Labs for Digital Control course.
 
 The purpose of this lab experiment is to understand the principals of analog-to-digital conversion (ADC) and digital-to-analog conversion (DAC). The system is implemented on an Arduino Mega2560. A sine wave from an external function generator serves as the analog input signal to the system. Analog-to-digital conversion is performed by the Arduino’s onboard ADC. The digital-to-analog process utilizes a MCP4921 IC chip. The resulting signal is outputted to an external oscilloscope in order to view the waveform. The effect of clock rate on the sampling process is also explored.
 
 ## Index ##
+<p></p>
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
@@ -24,6 +26,7 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 [Conclusion](#conclusion) <br>
 
 ## Summary / tl;dr ##
+<p></p>
 
 ### Procedures ###
 <ul style="list-style-type:disc;line-height:100%">
@@ -40,6 +43,7 @@ System was implemented properly and correctly converted analog input to digital 
 [(Jump to detailed results)](#results-and-discussion)
 
 ## Theory ##
+<p></p>
 
 ### Analog-to-Digital Conversion (ADC) ###
 
@@ -73,16 +77,19 @@ $$V_{OUT}\ =\ \frac{V_{REF}GD_N}{2^n},$$
 where <i>G</i> is the selected gain (1x in this case), <i>D<sub>N</sub></i> is the digital input value, and <i>n</i> is the number of bits of resolution (<i>n = 12</i>).
 
 ## System Block Diagram with Circuit Connections ##
+<p></p>
 
 <img src="/projects/adcdac/assets/blockdiagram.png">
 
 ## Physical Implementation ##
+<p></p>
 
 For the physical implementation of the system, power is supplied to the Arduino via the USB port. The MCP4921 is then powered by the 5V output pin from the Arduino. Because the Arduino cannot take negative voltage as input (max: -0.5V), the analog input signal from the function generator is given a DC offset of +2V, with V<sub>p-p</sub> = 1V.
 
 <img src="/projects/adcdac/assets/circuit.jpg">
 
 ## Program Code ##
+<p></p>
 
 The Arduino program code used is provided in the lab instructions with some minor adjustments. Since the Arduino Mega2560 is used, rather than the Arduino UNO, the pin declarations are changed to match the pinout of the Arduino Mega2560.
 
@@ -91,6 +98,8 @@ Additional code is also added to the original code to write to the ADC clock reg
 The full code is available in the repository [here](https://github.com/nolanschan/Arduino-ADC-DAC).
 
 ## Results and Discussion ##
+<p></p>
+
 The ADC/DAC system is tested at various frequencies between 10 – 10kHz in order to observe the differences in the output due to clock rate/sampling frequency. For all results, the default clock rate input/output is shown in the left, and the faster clock rate input/output is shown on the right. It should be noted that due to technical issues with the oscilloscope probes, the amplitude shown are not accurate. However, they were tested to be experimentally equivalent.
 
 At 10Hz and 100Hz, there is no noticable difference between the results obtained with the default clock rate and the faster clock rate. Both results show a faithful replication of the original input signal. However, at 1k+Hz, the difference in resolution due to the clock rate starts to become visible.
@@ -124,6 +133,8 @@ Increasing the input frequency up to 10kHz, even the faster clock rate is no lon
 <img src="/projects/adcdac/assets/10kHzpaused.png">
 
 ## Conclusion ##
+<p></p>
+
 In this lab experiment, an ADC-DAC system was implemented on an Arduino Mega 2560 in conjunction with an MCP4921 IC chip to convert an analog input signal into digital values and then back into an analog output signal. The effect of the clock rate on the sampling process was also seen by comparing the results using the default clock rate and a faster clock rate.
 
 From the results, it can be seen that the system was properly implemented. By supplying an analog sine wave as the input signal, the system was able to convert the analog signal into digital values, and then convert the digital values back into an analog signal to be outputted to the oscilloscope. It can be seen that the system was better able to replicate the input signal at lower frequencies. However, when the signal frequency is increased, the resulting signal became less and less accurate.
