@@ -5,12 +5,14 @@ layout: default
 # Analog Lead Compensator Circuit #
 
 ## Project Overview ##
+<p></p>
 
 Part 1 of Benchtop Labs for Digital Control course.
 
 The purpose of this lab experiment is to model a satellite in the analog domain as a double integrator using op amps. As a double integrator is inherently unstable, an analog controller must be added to the system. In this experiment, a lead compensator is to be used as the controller for this system.
 
 ## Index ##
+<p></p>
 
 [Summary / tl;dr](#summary--tldr) <br>
 [Op-Amp Selection](#op-amp-selection) <br>
@@ -25,6 +27,7 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 [Appendix A: Full Schematic Diagram](#appendix-a)
 
 ## Summary / tl;dr ##
+<p></p>
 
 ### Process ###
 <ul style="list-style-type:disc;line-height:100%">
@@ -41,10 +44,12 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 Overall, the circuit worked as intended, but was very slow. This meant that the controller was only able to function at a very low frequency. It is possible that this was due to the fact that a single-supply op-amp was used.
 
 ## Op-Amp Selection ##
+<p></p>
 
   For this experiment, the TLV2774 op-amp, manufactured by Texas Instruments, was chosen to implement this circuit. This component was one of the op-amps suggested by the lab instructions for use in this experiment. The TLV2774 is a single-supply, rail-to-rail op-amp, with supply voltage from 0 – 6V.
 
 ## Plant ##
+<p></p>
 
 ### Design ###
 
@@ -55,6 +60,7 @@ Overall, the circuit worked as intended, but was very slow. This meant that the 
 <img src="/projects/leadcompcircuit/assets/plantcircuit.png">
 
 ## Compensator ##
+<p></p>
 
 ### Design ###
 
@@ -95,6 +101,7 @@ $$R_1\ =\ \frac{\left(100\times{10}^3\right)}{9}\ \cong\ 11.111k\Omega$$
 <img src="/projects/leadcompcircuit/assets/compcircuit.png">
 
 ## Summing Junction ##
+<p></p>
 
 ### Design ###
 
@@ -113,6 +120,7 @@ $$V_{out}\ =\ V_+-V_-\ =\ U\left(t\right)-Y\left(t\right)=E\left(t\right)$$
 <img src="/projects/leadcompcircuit/assets/summingcircuit.png">
 
 ## Variable Gain Stage ##
+<p></p>
 
 ### Design ###
 
@@ -126,6 +134,7 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
 <img src="/projects/leadcompcircuit/assets/varygaincircuit.png">
 
 ## Level Shifter ##
+<p></p>
 
 ### Design ###
 
@@ -136,6 +145,7 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
 <img src="/projects/leadcompcircuit/assets/lvlshiftcircuit.png">
 
 ## Simulation (Simulink) ##
+<p></p>
 
 ### Model ###
 
@@ -149,6 +159,7 @@ Settling time: 3.565s <br>
 Percent overshoot: 23.3%
 
 ## Results and Discussion ##
+<p></p>
 
 <img src="/projects/leadcompcircuit/assets/hardwareoutput.jpg"> <br>
 Rise time: ~2s <br>
@@ -162,10 +173,12 @@ Percent overshoot: 23%
   The main deficiency of this circuit design was the speed of the response. Attempts were made to improve the speed by varying the gain, but to no avail. Because the response of the circuit was so slow, it was necessary for the input from the waveform generator to be at a very low frequency, < 0.0625Hz. At higher frequencies, the output would not have enough time to settle. This also made tuning the gain of the system much more difficult, as it would take a long time to see how any adjustments affected the response. One possible reason could be due to the fact that single-supply op-amps were used in this design.
 
 ## Conclusion ##
+<p></p>
 
   This analog circuit design fulfilled its overall purpose of implementing a double integrator plant, as well as a lead compensator to control the unstable double integrator signal. However, the slow speed of its response was a major deficiency, limiting the frequencies at which the circuit can serve its function. In future design iterations, changing from the use of single-supply op amps to dual-supply op amps could be a significant step towards improving the performance of the circuit.
   
 ## Appendix A ##
+<p></p>
 
 ### Full Schematic Diagram ###
 <img src="/projects/leadcompcircuit/assets/schematic.png">
