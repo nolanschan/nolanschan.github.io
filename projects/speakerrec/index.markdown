@@ -220,6 +220,7 @@ def extract_features(audio,rate):
   combined = np.hstack((mfcc_feat,delta))
   return combined
 {% endhighlight %}
+<p></p>
 
 ### Model Training ###
 
@@ -272,6 +273,7 @@ for path in file_paths:
         count = 0
     count = count + 1
 {% endhighlight %}
+<p></p>
 
 ### Validation Testing ###
 
@@ -320,6 +322,7 @@ for path in file_paths:
     print("\tdetected as - ", speakers[winner])
     time.sleep(1.0)
 {% endhighlight %}
+<p></p>
 
 ## Results and Discussion ##
 
