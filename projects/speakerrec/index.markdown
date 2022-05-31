@@ -238,7 +238,7 @@ Files to be used for training are enrolled in the text file, grouped by speaker.
     file_paths = open(train_file,'r')
 
     count = 1
-    # Extracting features for each speaker (10 files per speakers)
+    # Extracting features for each speaker (11 files per speakers)
     features = np.asarray(())
     for path in file_paths:
         path = path.strip()
@@ -254,7 +254,7 @@ Files to be used for training are enrolled in the text file, grouped by speaker.
             features = vector
         else:
             features = np.vstack((features, vector))
-        # when features of 10 files of speaker are concatenated, then do model training
+        # when features of 11 files of speaker are concatenated, then do model training
         if count == 11:
             gmm = GaussianMixture(n_components = 8, max_iter = 200, covariance_type='diag', n_init = 3)
             gmm.fit(features)
