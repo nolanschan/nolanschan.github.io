@@ -83,7 +83,8 @@ h1 {
 h2 {
 	font-size: 17px;
 	margin: 0 0 10px 0;
-	text-decoration: underline;
+	display: inline;
+	border-bottom: 1px solid;
 }
 h3 {
 	font-size: 15px;
