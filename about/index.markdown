@@ -17,7 +17,7 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 -  <u>Software</u>: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
 -  <u>Benchtop Equipment</u>: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
 -  <u>Languages</u>: Cantonese, Mandarin, Japanese
-
+<p></p>
 ### Relevant Coursework: ###
 -  <u>Capstone</u>: Electrical Engineering Design Project, Design of Control Systems
 -  <u>Controls</u>: Control Systems, Digital Control, Robot Modeling and Control
