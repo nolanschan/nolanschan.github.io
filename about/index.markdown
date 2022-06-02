@@ -17,3 +17,11 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 -  <u>Software</u>: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
 -  <u>Benchtop Equipment</u>: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
 -  <u>Languages</u>: Cantonese, Mandarin, Japanese
+
+### Relevant Coursework: ###
+-  <u>Capstone</u>: Electrical Engineering Design Project, Design of Control Systems
+-  <u>Controls</u>: Control Systems, Digital Control, Robot Modeling and Control
+-  <u>Core</u>: Electric and Electronic Circuits, Analog Electronic Circuits, Digital Logic Design, Digital System Design, Microprocessor Principles and Applications, Signals and Systems, Digital Signal Processing, Communication Systems, Energy Conversion Principles
+-  <u>Electives</u>: Electric Vehicles, Fractals in Engineering
+-  <u>Foundation</u>: Calculus, Differential Equations & Linear Algebra, Physics
+-  <u>Misc.</u>: Complexity and Emergence (Math / Graduation Writing Requirement), Introduction to Human Factors (Psych)
