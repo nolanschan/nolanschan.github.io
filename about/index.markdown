@@ -10,6 +10,7 @@ Hello! I'm Nolan. I just graduated with a BSEE (Controls concentration) from Cal
 My other hobbies include reading (books as well as following down the Wikipedia rabbit hole), photography, traveling, food, and horticulture (particularly bonsais, but I'm planning to expand to hydro/aquaponics one of these days). Oh, and hanging out with my dog.
 
 ### Skills: ###
+
 -  <u>Programming Languages</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly
 -  <u>Electronic Design Automation</u>: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
 -  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD
@@ -20,6 +21,7 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 <p></p>
 
 ### Relevant Coursework: ###
+
 -  <u>Capstone</u>: Electrical Engineering Design Project, Design of Control Systems
 -  <u>Controls</u>: Control Systems, Digital Control, Robot Modeling and Control
 -  <u>Core</u>: Electric and Electronic Circuits, Analog Electronic Circuits, Digital Logic Design, Digital System Design, Microprocessor Principles and Applications, Signals and Systems, Digital Signal Processing, Communication Systems, Energy Conversion Principles

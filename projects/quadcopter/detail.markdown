@@ -98,7 +98,7 @@ The Derivative controller output is based on the derivative, or rate of change, 
 ## System Block Diagram ##
 <p></p>
 
-<img src="/projects/quadcopter/assets/blockdiagram.png" width="800">
+![](/projects/quadcopter/assets/blockdiagram.png)
 
 ## Hardware Design Process ##
 <p></p>
@@ -123,7 +123,7 @@ With our hardware design finalized and our flight controller written, the final 
 
 We tuned the controllers by adjusting the gain coefficients manually in the code, and observing their effects. One method that we implemented was by tying the quadcopter to a PVC pipe such that it was only able to rotate along one axis at a time.
 
-<img src="/projects/quadcopter/assets/pidtuning.jpg">
+![](/projects/quadcopter/assets/pidtuning.jpg)
 
 ## Results and Analysis ##
 <p></p>

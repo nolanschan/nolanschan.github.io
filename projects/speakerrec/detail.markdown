@@ -60,19 +60,19 @@ Speaker recognition systems can also be extended to perform speaker verification
 
 Most people are used to seeing voice/sound as a time domain waveform, like this one:
 
-<img src="/projects/speakerrec/assets/6_yes_1_wave.png" width="800">
+![](/projects/speakerrec/assets/6_yes_1_wave.png)
 
 This is the waveform of one of the speakers in the dataset saying the word "yes", plotted using Librosa in Python. Knowing what word was said, you can kinda see in the wave the structure of the word: "ye-s". But as we learned in school/engineering classes, time domain representation doesn't give us a whole lot of useful information to work with. So we use frequency domain instead.
 
 So here's the same voice clip in the frequency domain, or its spectrogram:
 
-<img src="/projects/speakerrec/assets/6_yes_1_spec.png">
+![](/projects/speakerrec/assets/6_yes_1_spec.png)
 
 Well it tells us what frequencies are there but... it's not a lot to work with.
 
 Here's another spectrogram of another speaker saying the same word:
 
-<img src="/projects/speakerrec/assets/1_yes_1_spec.png">
+![](/projects/speakerrec/assets/1_yes_1_spec.png)
 
 Well you can tell it's different, but it's not <i>that</i> different.
 
@@ -88,20 +88,20 @@ $$m = 2595\log_{10}(1\ +\ \frac{f}{700})$$
 
 And when plotted against the Hertz scale, it looks like this:
 
-<img src="/projects/speakerrec/assets/melhzplot.png"> <br>
+![](/projects/speakerrec/assets/melhzplot.png) <br>
 (You can read more about the Mel scale on [Wikipedia](https://en.wikipedia.org/wiki/Mel_scale), which is also where I got the image of the above plot.)
 
 ### Mel-scaled Spectrogram ###
 
 From the formula and the plot we can see that humans hear different frequencies logarithmically. So what if we plot our spectrogram using the Mel scale?
 
-<img src="/projects/speakerrec/assets/6_yes_1_melspec.png">
+![](/projects/speakerrec/assets/6_yes_1_melspec.png)
 
 Well that's... better. But it's still pretty sparce. Are we missing something else? Maybe something that we also hear logarithmically?
 
 Oh! Volume! How could we forget about the decibel scale? So let's try plotting our Mel-scaled spectrogram with the amplitude scaled in dB.
 
-<img src="/projects/speakerrec/assets/6_yes_1_melspecdB.png">
+![](/projects/speakerrec/assets/6_yes_1_melspecdB.png)
 
 Wow look at that! That's a lot more information available for us (or a computer) to analyze.
 
@@ -142,21 +142,21 @@ Gaussian Mixture Models (GMM) is a commonly-used method in unsupervised machine 
 
 Let's say we've extracted the features from our dataset, and plotted on a graph, they look like this:
 
-<img src="/projects/speakerrec/assets/gmm1.png">
+![](/projects/speakerrec/assets/gmm1.png)
 
 We can see pretty clearly that they can easily be grouped into 2 clusters like this:
 
-<img src="/projects/speakerrec/assets/gmm2.png">
+![](/projects/speakerrec/assets/gmm2.png)
 
 This is the basis behind another popular alagorithm, "K-means clustering". This method finds the mean, or centroid, of each cluster (μ1 and μ2 in the image) and their distances from each datapoint. The datapoints are grouped into a cluster based on proximity until the results converge. This is known as a <i>hard clustering method</i>, in which each point belongs to only one cluster.
 
 Gaussian Mixture Models (GMMs), on the other hand, is a <i>soft clustering method</i>. Each cluster is represented by a Gaussian, which describes the probability that the data points belong to that cluster.
 
-<img src="/projects/speakerrec/assets/gmm3.png">
+![](/projects/speakerrec/assets/gmm3.png)
 
 Some important differences to note are that data points can belong to more than 1 cluster, such that cluster boundaries can overlap, and the clusters are not necessarily circular, as illustrated by this image from a SciPy GMM [demo](https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_covariances.html).
 
-<img src="/projects/speakerrec/assets/gmm4.png">
+![](/projects/speakerrec/assets/gmm4.png)
 
 ## Connection to Fractals ##
 <p></p>

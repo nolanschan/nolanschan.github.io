@@ -57,7 +57,7 @@ Overall, the circuit worked as intended, but was very slow. This meant that the 
 
 ### Circuit ###
 
-<img src="/projects/leadcompcircuit/assets/plantcircuit.png">
+![](/projects/leadcompcircuit/assets/plantcircuit.png)
 
 ## Compensator ##
 <p></p>
@@ -70,7 +70,7 @@ $$C(s)\ =\ k\frac{\left(s+1\right)}{\left(s+10\right)}$$
 
   The circuit design of a lead compensator was found in Design of Feedback Control Systems, 4th ed., by Stefani, Shahian, Savant, and Hostetter, with the following parameters.
 
-<img src="/projects/leadcompcircuit/assets/leadcompcircuit.png" width="800">
+![](/projects/leadcompcircuit/assets/leadcompcircuit.png" width="800">
 
 $$k\frac{\left(s+b\right)}{\left(s+a\right)}$$
 
@@ -98,7 +98,7 @@ $$R_1\ =\ \frac{\left(100\times{10}^3\right)}{9}\ \cong\ 11.111k\Omega$$
   
 ### Circuit ###
 
-<img src="/projects/leadcompcircuit/assets/compcircuit.png">
+![](/projects/leadcompcircuit/assets/compcircuit.png)
 
 ## Summing Junction ##
 <p></p>
@@ -117,7 +117,7 @@ $$V_{out}\ =\ V_+-V_-\ =\ U\left(t\right)-Y\left(t\right)=E\left(t\right)$$
   
 ### Circuit ###
 
-<img src="/projects/leadcompcircuit/assets/summingcircuit.png">
+![](/projects/leadcompcircuit/assets/summingcircuit.png)
 
 ## Variable Gain Stage ##
 <p></p>
@@ -131,7 +131,7 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
 
 ### Circuit ###
 
-<img src="/projects/leadcompcircuit/assets/varygaincircuit.png">
+![](/projects/leadcompcircuit/assets/varygaincircuit.png)
 
 ## Level Shifter ##
 <p></p>
@@ -142,18 +142,18 @@ $$V_{out}\ =\ -V_{in}\left(\frac{R_2}{R_1}\right)$$
   
 ### Circuit ###
 
-<img src="/projects/leadcompcircuit/assets/lvlshiftcircuit.png">
+![](/projects/leadcompcircuit/assets/lvlshiftcircuit.png)
 
 ## Simulation (Simulink) ##
 <p></p>
 
 ### Model ###
 
-<img src="/projects/leadcompcircuit/assets/simulinkmodel.png">
+![](/projects/leadcompcircuit/assets/simulinkmodel.png)
 
 ### Simulation Plot ###
 
-<img src="/projects/leadcompcircuit/assets/simulinksimplot.png"> <br>
+![](/projects/leadcompcircuit/assets/simulinksimplot.png) <br>
 Rise time: 1.432 - 1.079 = 0.353s <br>
 Settling time: 3.565s <br>
 Percent overshoot: 23.3%
@@ -161,7 +161,7 @@ Percent overshoot: 23.3%
 ## Results and Discussion ##
 <p></p>
 
-<img src="/projects/leadcompcircuit/assets/hardwareoutput.jpg"> <br>
+![](/projects/leadcompcircuit/assets/hardwareoutput.jpg) <br>
 Rise time: ~2s <br>
 Settling time: ~7.5s <br>
 Percent overshoot: 23%
@@ -181,4 +181,4 @@ Percent overshoot: 23%
 <p></p>
 
 ### Full Schematic Diagram ###
-<img src="/projects/leadcompcircuit/assets/schematic.png">
+![](/projects/leadcompcircuit/assets/schematic.png)
