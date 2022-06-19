@@ -1,0 +1,65 @@
+I"<h1 id="self-stabilizing-quadcopter-using-arduino">Self-Stabilizing Quadcopter using Arduino</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p></p>
+
+<p>For our senior capstone design course, our group decided to build an unmanned aerial vehicle (UAV), more commonly known as a drone. None of us knew much about drones in general, but we thought it would be a cool project and a good learning experience. As electrical engineers, our focus was on the control system — the flight controller, rather than the actual vehicle.</p>
+
+<p>Our goal was to use commercially-available parts to build a(n X-configuration) quadcopter which would be capable of self-stabilization. The X-configuration quadcopter is by far the most popular UAV configuration for general purposes due to the fact that it can be controlled with a simple flight control system. We chose to use an Arduino UNO as our flight controller because it was something we were all at least somewhat familiar with, and for the abundance of resources available.</p>
+
+<p><a href="/projects/quadcopter/detail">Full project details</a></p>
+
+<h2 id="project-overview">Project Overview</h2>
+
+<ul>
+  <li><u>Type</u>: Group (3 members)</li>
+  <li><u>Timeframe</u>: 1 semester (approx. 3 months)</li>
+  <li><u>Relevant Concepts/Skills</u>: Research, cost analysis, component selection, electronics assembly and testing, signal processing, failure analysis, Arduino/C++ programming and debugging, unmanned aerial vehicle (UAV), drone, quadcopter, flight mechanics, embedded systems, control theory, PID controller</li>
+  <li><u>Tools</u>: Arduino IDE, Arduino UNO microcontroller, soldering iron</li>
+  <li><u>Deliverable(s)</u>: Final “product” with demo video + 4 class presentations (Preliminary Design Review, Progress Update, Initial Results, Final Results)</li>
+</ul>
+<p></p>
+
+<h2 id="procedures">Procedures</h2>
+
+<ul style="list-style-type:disc;line-height:100%">
+  <li>Researched quadcopter flight mechanics, modeling, components, and control</li><ul style="list-style-type:circle;line-height:100%">
+    <li>Performed cost analysis and component selection to design, assemble, and test quadcopter</li></ul>
+  <li>Programmed and debugged flight controller code using Arduino</li><ul style="list-style-type:circle;line-height:100%">
+    <li>Implemented complementary filter to process signals from IMU</li>
+    <li>Set up and calibrated quadcopter and RC system using calibration code</li></ul>
+  <li>Implemented PID controller to control quadcopter movement</li><ul style="list-style-type:circle;line-height:100%">
+    <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul></ul>
+<p></p>
+
+<h2 id="system-block-diagram">System Block Diagram</h2>
+<p></p>
+
+<p><img src="/projects/quadcopter/assets/blockdiagram.png" alt="" /></p>
+
+<h2 id="progress-pictures">Progress Pictures</h2>
+<p></p>
+
+<p><img src="/projects/quadcopter/assets/prog1.png" alt="" />
+<img src="/projects/quadcopter/assets/prog2.jpg" alt="" />
+<img src="/projects/quadcopter/assets/pidtuning.jpg" alt="" /></p>
+
+<h2 id="results">Results</h2>
+
+<p>Quadcopter was functional, but had a tendency to drift backwards and would occasionally “jump” unexpectedly. This was likely due to misalignment between the IMU and vehicle body.</p>
+
+<iframe src="https://player.vimeo.com/video/714344300?h=37aa9a706a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="800" height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="EE 400D Project Demo"></iframe>
+<p><br /></p>
+
+<p>Unfortunately, we were not able to test our theory or remedy the design before the deadline, as a crash on our last testing day resulted in a broken wire to the power distribution board (PDB) which was not discovered until later.</p>
+
+<h2 id="future-work">Future Work</h2>
+<p></p>
+
+<p>The first things would of course be to fix the broken wire and the misalignment between the IMU and the vehicle body. However, a redesign could also be beneficial. For example, the use of a 4-in-1 ESC (electronic speed controller) rather than 4 separate ESC’s could reduce the weight of the quadcopter and also potentially improve the balance.</p>
+
+<h2 id="repository">Repository</h2>
+<p></p>
+
+<p>The full code/repository can be found <a href="https://github.com/nolanschan/Arduino-Quadcopter">here</a>.</p>
+:ET

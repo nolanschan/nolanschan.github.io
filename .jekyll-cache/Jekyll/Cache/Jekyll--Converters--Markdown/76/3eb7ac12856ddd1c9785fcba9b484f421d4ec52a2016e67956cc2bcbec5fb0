@@ -1,0 +1,63 @@
+I"�<h1 id="analog-to-digital--digital-to-analog-conversion-using-arduino">Analog-to-Digital / Digital-to-Analog Conversion using Arduino</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p></p>
+
+<p>Part 2 of Benchtop Labs for Digital Control course.</p>
+
+<p>The purpose of this lab experiment is to understand the principals of analog-to-digital conversion (ADC) and digital-to-analog conversion (DAC). The system is implemented on an Arduino Mega2560. A sine wave from an external function generator serves as the analog input signal to the system. Analog-to-digital conversion is performed by the Arduino’s onboard ADC. The digital-to-analog process utilizes a MCP4921 IC chip. The resulting signal is outputted to an external oscilloscope in order to view the waveform. The effect of clock rate on the sampling process is also explored.</p>
+
+<p><a href="/projects/adcdac/detail">Full project details</a></p>
+
+<h2 id="project-overview">Project Overview</h2>
+
+<ul>
+  <li><u>Type</u>: Individual</li>
+  <li><u>Timeframe</u>: Approx. 1 month</li>
+  <li><u>Relevant Concepts/Skills</u>: Research, component selection, analog circuit design, analog circuit testing, Arduino/C++ programming and debugging, analog-to-digital conversion (ADC), digital-to-analog conversion (DAC)</li>
+  <li><u>Tools</u>: Arduino IDE, Arduino Mega2560, digital function generator, digital multimeter (DMM), DC power supply, digital oscilloscope</li>
+  <li><u>Deliverable(s)</u>: Physical circuit, demo, lab report</li>
+</ul>
+<p></p>
+
+<h2 id="procedures">Procedures</h2>
+
+<ul style="list-style-type:disc;line-height:100%">
+  <li>Assembled system circuit</li>
+  <li>Converted analog input (sine wave) to digital signal using Arduino ADC</li>
+  <li>Converted digital signal to analog output using MCP4921 IC chip (DAC)</li>
+  <li>Increased clock rate and repeated procedures</li></ul>
+<p></p>
+
+<h2 id="system-block-diagram-with-circuit-connections">System Block Diagram with Circuit Connections</h2>
+<p></p>
+
+<p><img src="/projects/adcdac/assets/blockdiagram.png" alt="" /></p>
+
+<h2 id="physical-implementation">Physical Implementation</h2>
+<p></p>
+
+<p><img src="/projects/adcdac/assets/circuit.jpg" alt="" /></p>
+
+<h2 id="results">Results</h2>
+
+<p>Selected results are shown below. For the full results, please check out the <a href="/project/adcdac/detail">details page</a>.</p>
+
+<p>For all results, the default clock rate input/output is shown in the left, and the faster clock rate input/output is shown on the right. It should be noted that due to technical issues with the oscilloscope probes, the amplitude shown are not accurate. However, they were tested to be experimentally equivalent.</p>
+
+<h3 id="100hz">100Hz</h3>
+<p><img src="/projects/adcdac/assets/100Hz.png" alt="" /></p>
+
+<h3 id="1khz">1kHz</h3>
+<p><img src="/projects/adcdac/assets/1kHz.png" alt="" /></p>
+
+<h3 id="1khz-paused">1kHz (paused)</h3>
+<p><img src="/projects/adcdac/assets/1kHzpaused.png" alt="" /></p>
+
+<p>System was implemented properly and correctly converted analog input to digital signal, then back to analog output. The maximum input frequency at which the default clock rate is able to replicate the input sine wave is ≤ 1kHz, likely at a frequency closer to 100Hz. For the faster clock rate, the highest frequency appears to be around 2k - 5kHz.</p>
+
+<h2 id="repository">Repository</h2>
+<p></p>
+
+<p>The full code/repository can be found <a href="https://github.com/nolanschan/Arduino-ADC-DAC">here</a>.</p>
+:ET

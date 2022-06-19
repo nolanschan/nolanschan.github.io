@@ -1,0 +1,357 @@
+I"�<h1 id="speaker-recognition-using-python-and-machine-learning">Speaker Recognition using Python and Machine Learning</h1>
+
+<h2 id="introduction--project-overview">Introduction / Project Overview</h2>
+<p></p>
+
+<p>I had been wanting to learn more about machine learning (as well as Python), and I was really excited to take a “Neural Network and Fuzzy Logic” course my last semester. But unfortunately, it got canceled due to low enrollment. So when I found out that my Fractals class had a final project with a free choice of topic, I took advantage of the opportunity and did mine on machine learning.</p>
+
+<p>For this project, I used the popular machine learning algorithm Gaussian Mixture Models (GMM) to train models to recognize the speakers of some commonly used “command” words. This project was implemented in Python, which I’m still new to, so I followed a base code and modified it to run on Python 3.</p>
+
+<h2 id="index">Index</h2>
+<p></p>
+
+<p><a href="#background--theory">Background / Theory</a> <br />
+<a href="#connection-to-fractals">Connection to Fractals</a> <br />
+<a href="#machine-learning-process">Machine Learning Process</a> <br />
+— <a href="#dataset-selection">Dataset Selection</a> <br />
+— <a href="#-pre-processing">Pre-processing</a> <br />
+— <a href="#feature-extraction">Feature Extraction</a> <br />
+— <a href="#model-training">Model Training</a> <br />
+— <a href="#validation-testing">Validation Testing</a> <br />
+<a href="#results-and-discussion">Results and Discussion</a> <br />
+<a href="#future-work">Future Work</a> <br />
+<a href="https://github.com/nolanschan/Speaker-Identification-using-GMMs">Repository</a></p>
+
+<h2 id="background--theory">Background / Theory</h2>
+<p></p>
+
+<h3 id="speaker-recognition">Speaker Recognition</h3>
+
+<p>Speaker recognition: To identify a person based on the characteristics of their voice</p>
+
+<p>This is different from speech recognition, which identifies the words spoken, regardless of speaker.</p>
+
+<p>Speaker recognition can be text-dependent (system can only recognize the speaker when using specific command/trained words) or text-independent (system can recognize the speaker using any words). For example, smart home assistants are text-indepdent — after they learn the user’s voice from a (relatively) small amount of voice data, they’re able to recognize the user, regardless of what they’re saying.</p>
+
+<p>Speaker recognition systems can also be extended to perform speaker verification/authentication. By combining with speech recognition such that the system learns the users’ names, such a system can determine whether the speaker is who they say they are.</p>
+
+<h3 id="time-domain-vs-frequency-domain">Time Domain vs Frequency Domain</h3>
+
+<p>Most people are used to seeing voice/sound as a time domain waveform, like this one:</p>
+
+<p><img src="/projects/speakerrec/assets/6_yes_1_wave.png" alt="" /></p>
+
+<p>This is the waveform of one of the speakers in the dataset saying the word “yes”, plotted using Librosa in Python. Knowing what word was said, you can kinda see in the wave the structure of the word: “ye-s”. But as we learned in school/engineering classes, time domain representation doesn’t give us a whole lot of useful information to work with. So we use frequency domain instead.</p>
+
+<p>So here’s the same voice clip in the frequency domain, or its spectrogram:</p>
+
+<p><img src="/projects/speakerrec/assets/6_yes_1_spec.png" alt="" /></p>
+
+<p>Well it tells us what frequencies are there but… it’s not a lot to work with.</p>
+
+<p>Here’s another spectrogram of another speaker saying the same word:</p>
+
+<p><img src="/projects/speakerrec/assets/1_yes_1_spec.png" alt="" /></p>
+
+<p>Well you can tell it’s different, but it’s not <i>that</i> different.</p>
+
+<h3 id="how-humans-hear-and-the-mel-frequency-scale">How Humans Hear and the Mel Frequency Scale</h3>
+
+<p>How are we humans able to differentiate between and recognize all the voices we hear? Well one thing to remember is that we don’t hear differences in frequencies, or pitches, linearly. For example, 100Hz and 200Hz sound farther apart than 1000Hz and 1100Hz, even though both sets have a 100Hz difference between them.</p>
+
+<p>So this is where the Mel frequency scale comes in.</p>
+
+<p>The Mel frequency scale is a nonlinear scale which more closely approximates the human auditory system’s response to different pitches, or frequencies. There isn’t a standardized formula for calculating the Mel frequency equivalent, but here’s a popular one:</p>
+
+\[m = 2595\log_{10}(1\ +\ \frac{f}{700})\]
+
+<p>And when plotted against the Hertz scale, it looks like this:</p>
+
+<p><img src="/projects/speakerrec/assets/melhzplot.png" alt="" /> <br />
+(You can read more about the Mel scale on <a href="https://en.wikipedia.org/wiki/Mel_scale">Wikipedia</a>, which is also where I got the image of the above plot.)</p>
+
+<h3 id="mel-scaled-spectrogram">Mel-scaled Spectrogram</h3>
+
+<p>From the formula and the plot we can see that humans hear different frequencies logarithmically. So what if we plot our spectrogram using the Mel scale?</p>
+
+<p><img src="/projects/speakerrec/assets/6_yes_1_melspec.png" alt="" /></p>
+
+<p>Well that’s… better. But it’s still pretty sparce. Are we missing something else? Maybe something that we also hear logarithmically?</p>
+
+<p>Oh! Volume! How could we forget about the decibel scale? So let’s try plotting our Mel-scaled spectrogram with the amplitude scaled in dB.</p>
+
+<p><img src="/projects/speakerrec/assets/6_yes_1_melspecdB.png" alt="" /></p>
+
+<p>Wow look at that! That’s a lot more information available for us (or a computer) to analyze.</p>
+
+<p>In fact, another popular method for training speaker recognition models is to feed these Mel-/dB-scaled spectrograms into a neural network. Then it simply becomes an image classification problem. It was actually one of the methods that I looked into for this project, but since I wanted to learn about machine learning before trying to get into deep learning, I decided against using it.</p>
+
+<h3 id="mel-frequency-cepstrum">(Mel frequency) Cepstrum</h3>
+
+<p>Because we’re not using the spectrogram images, we need to use some other way to extract some features to train our models with. One common way in audio signal processing to represent the power spectrum of a sound is by its “cepstrum”. Or more specifically, for audio signals, the Mel frequency cepstrum (MFC).</p>
+
+<p>A cepstrum is basically the “spectrum of a spectrum”. It shows the rate of change/periodicity in the different spectrum bands. For the Mel frequency cepstrum, the power spectrum is mapped to the Mel scale.</p>
+
+<p>Just as we can derive Fourier coefficients for a Fourier series, we can also derive Mel frequency cepstral coefficients (MFCCs) for a MFC. This is commonly done by:</p>
+<ul style="list-style-type:disc;line-height:100%"><li>Taking the Fourier Transform of a signal</li>
+  <li>Mapping the power spectrum to Mel scale</li>
+  <li>Taking the log of the Mel-scaled power spectrum</li>
+  <li>Taking the inverse Fourier Transform of the power spectrum to the "quefrency" domain (time in samples)</li>
+  <li>The resulting amplitudes are the cepstral coefficients.</li></ul>
+<p></p>
+<p>(You can read more about the MFC on <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">Wikipedia</a>)</p>
+
+<p>Although MFCCs give us information about the spectrum of a speech signal, they’re limited to a particular frame. This is similar to the study of motion: A moving  particle can be described by its (instantaneous) position, but to know its motion, we need to find its velocity and acceleration, the first and second derivatives of its position. Likewise, speech signals are time-varying, and there’s information in the way the MFCCs change.</p>
+
+<p>In this case, the first and second derivatives are called the differential and acceleration coefficients, or the delta and delta-delta MFCCs.</p>
+
+<p>The delta MFCCs can be found using the following formula:</p>
+
+\[d_t\ =\ \frac{\sum_{n=1}^{N} n(c_{t+n}\ -\ c_{t-n})}{2\sum_{n=1}^{N} n^2}\]
+
+<p>where \(d_t\) is the delta coefficient, from frame \(t\) computed in terms of the static coefficients \((c_{t+n}\ -\ c_{t-n})\), and a typical value for \(N\) is 2. The delta-delta coefficients can be calculated similarly by replacing the static coefficients in the formula with the delta coefficients.</p>
+
+<p>Researchers have found that using just the delta coefficients improved the performance of speech (and speaker) recognition systems.</p>
+
+<p>You can read more about them (and about MFCCs as well) <a href="https://wiki.aalto.fi/display/ITSP/Deltas+and+Delta-deltas">here</a> and <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">here</a>.</p>
+
+<h3 id="gaussian-mixture-models">Gaussian Mixture Models</h3>
+
+<p>Gaussian Mixture Models (GMM) is a commonly-used method in unsupervised machine learning. A lot of information, as well as the math behind it, can be found on this <a href="https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95">blog</a>(, from which I also grabbed some images below). For the purpose of this project, here’s a brief conceptual summary.</p>
+
+<p>Let’s say we’ve extracted the features from our dataset, and plotted on a graph, they look like this:</p>
+
+<p><img src="/projects/speakerrec/assets/gmm1.png" alt="" /></p>
+
+<p>We can see pretty clearly that they can easily be grouped into 2 clusters like this:</p>
+
+<p><img src="/projects/speakerrec/assets/gmm2.png" alt="" /></p>
+
+<p>This is the basis behind another popular alagorithm, “K-means clustering”. This method finds the mean, or centroid, of each cluster (μ1 and μ2 in the image) and their distances from each datapoint. The datapoints are grouped into a cluster based on proximity until the results converge. This is known as a <i>hard clustering method</i>, in which each point belongs to only one cluster.</p>
+
+<p>Gaussian Mixture Models (GMMs), on the other hand, is a <i>soft clustering method</i>. Each cluster is represented by a Gaussian, which describes the probability that the data points belong to that cluster.</p>
+
+<p><img src="/projects/speakerrec/assets/gmm3.png" alt="" /></p>
+
+<p>Some important differences to note are that data points can belong to more than 1 cluster, such that cluster boundaries can overlap, and the clusters are not necessarily circular, as illustrated by this image from a SciPy GMM <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_covariances.html">demo</a>.</p>
+
+<p><img src="/projects/speakerrec/assets/gmm4.png" alt="" /></p>
+
+<h2 id="connection-to-fractals">Connection to Fractals</h2>
+<p></p>
+
+<h3 id="scale">Scale</h3>
+
+<p>One feature of fractals that we discussed in class is “scale”, and the idea that what we can see depends on how closely we “zoom in”.</p>
+
+<p><img src="/projects/speakerrec/assets/scale.png" alt="" /></p>
+
+<p>Here are 2 different versions of the same waveform of one of the voice clips used. In the top waveform, most of the end just looks like noise. But if we zoom in closer, we get the bottom waveform, and we can see that there’s actually a little something right at the end there. That’s actually the “p”-sound in the word “stop”, an important feature! If we hadn’t looked closer, we might have dismissed it as noise and accidentally trimmed part of the word.</p>
+
+<h3 id="self-similarity">Self-similarity</h3>
+
+<p>The other feature of fractals that people are most familiar with is of course the concept of “self-similarity”. In this case, rather than exact self-similarity, we’re looking instead at stochastic self-similarity. When it comes to speech, even if we try, we can’t say the same word exactly the same twice. But yet, we still recognize the word. We also recognize when different people are saying the same word. The fact that we can train a machine to recognize different speakers as well as words, is based on the premise that there is some stochastic, or statistic, self-similarity that can be recognized.</p>
+
+<p>Here we have 2 instances each of 3 different people saying the word “yes”.</p>
+
+<p><img src="/projects/speakerrec/assets/selfsim1.png" alt="" /></p>
+
+<p>We can see that the waveforms for each speaker definitely look alike. There is also some similarity between all these instances, especially when compared to the waveform of the word “stop” above.</p>
+
+<p>We can also look at the Mel-scaled spectrograms of these waveforms.</p>
+
+<p><img src="/projects/speakerrec/assets/selfsim2.png" alt="" /></p>
+
+<p>In the frequency-domain, the similarities between the 2 instances of each speaker is even more obvious!</p>
+
+<h2 id="machine-learning-process">Machine Learning Process</h2>
+<p></p>
+
+<h3 id="dataset-selection">Dataset Selection</h3>
+
+<p>For this project, I used the <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">“Speech Command Dataset”</a> created by the TensorFlow and Google AIY teams. It contains 65,000 1-second-long utterances of 30 short words submitted by members of the public through the AIY website. These include commonly-used “command” words (yes, no, stop, on, off), digits, directions, as well as some miscellaneous words and names.</p>
+
+<p>My motivation behind using this dataset rather than other popular speech datasets like VoxForge was because of the fact that this project was for a Fractals course. I wanted to have example clips of different people saying the same words multiple times in order to show the self-similarities in the time and frequency domains.</p>
+
+<p>As a first-time project, I decided to use a smaller subset of the dataset. 6 speakers were randomly selected based on the criteria that they had 5 clips for each word, and ended up being 5 male and 1 female. The words chosen were “yes”, “no”, “stop”, “go”, and “up”. During the whole process, between 5-11 clips/speaker were used for training, and 1 clip/speaker was used for testing.</p>
+
+<h3 id="pre-processing">Pre-processing</h3>
+
+<p>As the clips were submitted by the public, the quality vary vastly. It also seemed that speakers often recorded clips of the same words consecutively, so there was common background noise in all clips. I wanted to make sure the model was based on the voice and not the background noise as much as possible, so some pre-processing was done before training.</p>
+
+<p>All data were pre-processed manually using Audacity as following:</p>
+<ul style="list-style-type:disc;line-height:100%"><li>Trim word</li>
+  <li>Align to start</li>
+  <li>Zero-padding for 1-sec clip</li></ul>
+<p></p>
+
+<h3 id="feature-extraction">Feature Extraction</h3>
+
+<p>Using the python_speech_features library, 20 Mel frequency ceptral coefficients and 20 delta Mel frequency cepstral coefficients are extracted for a total of 40 training features.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">import</span> <span class="n">numpy</span> <span class="n">as</span> <span class="n">np</span>
+<span class="n">from</span> <span class="n">sklearn</span> <span class="n">import</span> <span class="n">preprocessing</span>
+<span class="n">import</span> <span class="n">python_speech_features</span> <span class="n">as</span> <span class="n">mfcc</span>
+ 
+<span class="k">def</span> <span class="nf">calculate_delta</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+  <span class="s2">"""Calculate and returns the delta of given feature vector matrix"""</span>
+ 
+  <span class="n">rows</span><span class="p">,</span><span class="n">cols</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="nf">shape</span>
+  <span class="n">deltas</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+  <span class="no">N</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="no">N</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="ss">else:
+        </span><span class="n">first</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">rows</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">rows</span><span class="o">-</span><span class="mi">1</span>
+      <span class="ss">else:
+        </span><span class="n">second</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span>
+      <span class="n">index</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">second</span><span class="p">,</span><span class="n">first</span><span class="p">))</span>
+      <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">-</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">-</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]]))</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
+  <span class="k">return</span> <span class="n">deltas</span>
+ 
+<span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span><span class="n">rate</span><span class="p">):</span>
+  <span class="s2">"""extract 20 dim mfcc features from an audio, performs CMS and combines
+  delta to make it 40 dim feature vector"""</span>   
+ 
+  <span class="n">mfcc_feat</span> <span class="o">=</span> <span class="n">mfcc</span><span class="p">.</span><span class="nf">mfcc</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span><span class="n">rate</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">appendEnergy</span> <span class="o">=</span> <span class="no">True</span><span class="p">)</span>
+  <span class="n">mfcc_feat</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="nf">scale</span><span class="p">(</span><span class="n">mfcc_feat</span><span class="p">)</span>
+  <span class="n">delta</span> <span class="o">=</span> <span class="n">calculate_delta</span><span class="p">(</span><span class="n">mfcc_feat</span><span class="p">)</span>
+  <span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">hstack</span><span class="p">((</span><span class="n">mfcc_feat</span><span class="p">,</span><span class="n">delta</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">combined</span></code></pre></figure>
+
+<p></p>
+
+<h3 id="model-training">Model Training</h3>
+
+<p>Files to be used for training are enrolled in the text file, grouped by speaker. Features (MFCCs and delta-MFCCs) are extracted for each file and concatenated in a vector. When the specified number of files (10/speaker in this case) has been reached, model training is done using the sklearn GMM function. The trained model is then saved in a separate folder to be used for testing.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">import</span> <span class="n">pickle</span> <span class="n">as</span> <span class="n">cPickle</span>
+<span class="n">import</span> <span class="n">numpy</span> <span class="n">as</span> <span class="n">np</span>
+<span class="n">from</span> <span class="n">scipy</span><span class="p">.</span><span class="nf">io</span><span class="p">.</span><span class="nf">wavfile</span> <span class="n">import</span> <span class="n">read</span>
+<span class="n">from</span> <span class="n">sklearn</span><span class="p">.</span><span class="nf">mixture</span> <span class="n">import</span> <span class="no">GaussianMixture</span>
+<span class="n">from</span> <span class="n">speakerfeatures</span> <span class="n">import</span> <span class="n">extract_features</span>
+<span class="n">import</span> <span class="n">warnings</span>
+<span class="n">warnings</span><span class="p">.</span><span class="nf">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+ 
+<span class="c1">#path to training data</span>
+<span class="n">source</span>   <span class="o">=</span> <span class="s2">"training_data</span><span class="se">\\</span><span class="s2">"</span>  
+ 
+<span class="c1">#path where training speakers will be saved</span>
+<span class="n">dest</span> <span class="o">=</span> <span class="s2">"speaker_models</span><span class="se">\\</span><span class="s2">"</span>
+<span class="n">train_file</span> <span class="o">=</span> <span class="s2">"training_set_enroll.txt"</span>
+<span class="n">file_paths</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">train_file</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span>
+ 
+<span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Extracting features for each speaker (11 files per speakers)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">asarray</span><span class="p">(())</span>
+<span class="k">for</span> <span class="n">path</span> <span class="k">in</span> <span class="ss">file_paths:
+    </span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+ 
+    <span class="c1"># read the audio</span>
+    <span class="n">sr</span><span class="p">,</span><span class="n">audio</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">source</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+ 
+    <span class="c1"># extract 40 dimensional MFCC &amp; delta MFCC features</span>
+    <span class="n">vector</span>   <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span><span class="n">sr</span><span class="p">)</span>
+ 
+    <span class="k">if</span> <span class="n">features</span><span class="p">.</span><span class="nf">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">vector</span>
+    <span class="ss">else:
+        </span><span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">vstack</span><span class="p">((</span><span class="n">features</span><span class="p">,</span> <span class="n">vector</span><span class="p">))</span>
+    <span class="c1"># when features of 11 files of speaker are concatenated, then do model training</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="n">gmm</span> <span class="o">=</span> <span class="no">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s1">'diag'</span><span class="p">,</span> <span class="n">n_init</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">gmm</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+ 
+        <span class="c1"># dumping the trained gaussian model</span>
+        <span class="n">picklefile</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">".gmm"</span>
+        <span class="n">cPickle</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span><span class="nb">open</span><span class="p">(</span><span class="n">dest</span> <span class="o">+</span> <span class="n">picklefile</span><span class="p">,</span><span class="s1">'wb'</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'+ modeling completed for speaker:'</span><span class="p">,</span><span class="n">picklefile</span><span class="p">,</span><span class="s2">" with data point = "</span><span class="p">,</span><span class="n">features</span><span class="p">.</span><span class="nf">shape</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">asarray</span><span class="p">(())</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span></code></pre></figure>
+
+<p></p>
+
+<h3 id="validation-testing">Validation Testing</h3>
+
+<p>Files to be tested are enrolled in the text file. Each file is compared with the trained models. The most similar is declared the “winner”.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">import</span> <span class="n">os</span>
+<span class="n">import</span> <span class="n">pickle</span> <span class="n">as</span> <span class="n">cPickle</span>
+<span class="n">import</span> <span class="n">numpy</span> <span class="n">as</span> <span class="n">np</span>
+<span class="n">from</span> <span class="n">scipy</span><span class="p">.</span><span class="nf">io</span><span class="p">.</span><span class="nf">wavfile</span> <span class="n">import</span> <span class="n">read</span>
+<span class="c1"># from speakerfeatures import extract_features</span>
+<span class="n">import</span> <span class="n">warnings</span>
+<span class="n">warnings</span><span class="p">.</span><span class="nf">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="n">import</span> <span class="n">time</span>
+ 
+<span class="c1">#path to training data</span>
+<span class="n">source</span>   <span class="o">=</span> <span class="s2">"test_data</span><span class="se">\\</span><span class="s2">"</span>
+<span class="n">modelpath</span> <span class="o">=</span> <span class="s2">"speaker_models</span><span class="se">\\</span><span class="s2">"</span>
+<span class="n">test_file</span> <span class="o">=</span> <span class="s2">"test_set_enroll.txt"</span>
+<span class="n">file_paths</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">test_file</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span>
+ 
+<span class="n">gmm_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">.</span><span class="nf">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">modelpath</span><span class="p">,</span><span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="k">in</span>
+              <span class="n">os</span><span class="p">.</span><span class="nf">listdir</span><span class="p">(</span><span class="n">modelpath</span><span class="p">)</span> <span class="k">if</span> <span class="n">fname</span><span class="p">.</span><span class="nf">endswith</span><span class="p">(</span><span class="s1">'.gmm'</span><span class="p">)]</span>
+ 
+<span class="c1">#Load the Gaussian Speaker Models</span>
+<span class="n">models</span>    <span class="o">=</span> <span class="p">[</span><span class="n">cPickle</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">'rb'</span><span class="p">))</span> <span class="k">for</span> <span class="n">fname</span> <span class="k">in</span> <span class="n">gmm_files</span><span class="p">]</span>
+<span class="n">speakers</span>   <span class="o">=</span> <span class="p">[</span><span class="n">fname</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="s2">".gmm"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">fname</span>
+              <span class="k">in</span> <span class="n">gmm_files</span><span class="p">]</span>
+ 
+<span class="c1"># Read the test directory and get the list of test audio files</span>
+<span class="k">for</span> <span class="n">path</span> <span class="k">in</span> <span class="ss">file_paths:   
+ 
+    </span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">sr</span><span class="p">,</span><span class="n">audio</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">source</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+    <span class="n">vector</span>   <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span><span class="n">sr</span><span class="p">)</span>
+ 
+    <span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">models</span><span class="p">))</span> 
+ 
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">models</span><span class="p">)):</span>
+        <span class="n">gmm</span>    <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1">#checking with each model one by one</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">gmm</span><span class="p">.</span><span class="nf">score</span><span class="p">(</span><span class="n">vector</span><span class="p">))</span>
+        <span class="n">log_likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores</span><span class="p">.</span><span class="nf">sum</span><span class="p">()</span>
+ 
+    <span class="n">winner</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">log_likelihood</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">detected as - "</span><span class="p">,</span> <span class="n">speakers</span><span class="p">[</span><span class="n">winner</span><span class="p">])</span>
+    <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span></code></pre></figure>
+
+<p></p>
+
+<h2 id="results-and-discussion">Results and Discussion</h2>
+<p></p>
+
+<p><img src="/projects/speakerrec/assets/results1.png" alt="" /></p>
+
+<p><img src="/projects/speakerrec/assets/results2.png" alt="" /></p>
+
+<p>Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The model tends to be more successful if the test word is one that it has “heard” at least once.</p>
+
+<p>However, when the model is trained on the same word (4x) used for testing, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.</p>
+
+<p>It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.</p>
+
+<h2 id="future-work">Future Work</h2>
+<p></p>
+
+<p>To improve performance, more voice samples (available in the main Speech Commands Dataset) will likely be needed for training. Data can also be augmented (for example by introducing noise) in order to increases the robustness of the model.</p>
+
+<p>Other ML/DL algorithms could be implemented instead/in addition to GMM.</p>
+
+<p>It should also be possible to extend this model to perform speech recognition and/or speaker verification.</p>
+
+<h2 id="repository">Repository</h2>
+<p></p>
+
+<p>The full code can be found in the repository <a href="https://github.com/nolanschan/Speaker-Identification-using-GMMs">here</a>.</p>
+:ET

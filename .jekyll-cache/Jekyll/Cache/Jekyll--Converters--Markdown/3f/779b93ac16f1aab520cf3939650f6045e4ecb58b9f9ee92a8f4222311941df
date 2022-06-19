@@ -1,0 +1,59 @@
+I"[<h1 id="speaker-recognition-using-python-and-machine-learning">Speaker Recognition using Python and Machine Learning</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p></p>
+
+<p>I had been wanting to learn more about machine learning (as well as Python), and I was really excited to take a “Neural Network and Fuzzy Logic” course my last semester. But unfortunately, it got canceled due to low enrollment. So when I found out that my Fractals class had a final project with a free choice of topic, I took advantage of the opportunity and did mine on machine learning.</p>
+
+<p>For this project, I used the popular machine learning algorithm Gaussian Mixture Models (GMM) to train models to recognize the speakers of some commonly used “command” words. This project was implemented in Python, which I’m still new to, so I followed a base code and modified it to run on Python 3.</p>
+
+<p><a href="/projects/speakerrec/detail">Full project details</a></p>
+
+<h2 id="project-overview">Project Overview</h2>
+
+<ul>
+  <li><u>Type</u>: Individual</li>
+  <li><u>Timeframe</u>: Approx. 1 month</li>
+  <li><u>Relevant Concepts/Skills</u>: Research, machine learning, Gaussian Mixture Model, (audio) signal processing</li>
+  <li><u>Tools</u>: Audacity, Python, Jupyter Notebook, NumPy, SciPy, Python Speech Features, scikit-learn, Librosa</li>
+  <li><u>Deliverable(s)</u>: Final presentation</li>
+</ul>
+<p></p>
+
+<h2 id="procedures">Procedures</h2>
+
+<ul style="list-style-type:disc;line-height:100%">
+  <li>Researched machine learning and algorithmns</li>
+  <li>Pre-processed voice clips from selected dataset</li>
+  <li>Performed feature extraction with Mel-frequency cepstral coefficients and delta-Mel-frequency cepstral coefficients</li>
+  <li> Trained models using Gaussian Mixture Models (GMM) algorithm</li>
+  <li>Tested validity of models by using unseen voice clips</li></ul>
+<p></p>
+
+<h2 id="results">Results</h2>
+<p></p>
+
+<p><img src="/projects/speakerrec/assets/results1.png" alt="" /></p>
+
+<p><img src="/projects/speakerrec/assets/results2.png" alt="" /></p>
+
+<p>Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The model tends to be more successful if the test word is one that it has “heard” at least once.</p>
+
+<p>However, when the model is trained on the same word (4x) used for testing, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.</p>
+
+<p>It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.</p>
+
+<h2 id="future-work">Future Work</h2>
+<p></p>
+
+<p>To improve performance, more voice samples (available in the main Speech Commands Dataset) will likely be needed for training. Data can also be augmented (for example by introducing noise) in order to increases the robustness of the model.</p>
+
+<p>Other ML/DL algorithms could be implemented instead/in addition to GMM.</p>
+
+<p>It should also be possible to extend this model to perform speech recognition and/or speaker verification.</p>
+
+<h2 id="repository">Repository</h2>
+<p></p>
+
+<p>The full code can be found in the repository <a href="https://github.com/nolanschan/Speaker-Identification-using-GMMs">here</a>.</p>
+:ET

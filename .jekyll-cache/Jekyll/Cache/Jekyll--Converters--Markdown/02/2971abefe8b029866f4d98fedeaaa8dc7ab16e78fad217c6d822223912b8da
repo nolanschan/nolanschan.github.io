@@ -1,0 +1,20 @@
+I"Ä<h1 id="projects">Projects</h1>
+
+<h3 id="ee400d---electrical-engineering-design-project">EE400D - Electrical Engineering Design Project</h3>
+<ul>
+  <li><a href="/projects/quadcopter">Self-Stabilizing Quadcopter using Arduino</a></li>
+</ul>
+<p></p>
+
+<h3 id="ee412---fractals-in-engineering">EE412 - Fractals in Engineering</h3>
+<ul>
+  <li><a href="/projects/speakerrec">Speaker Recognition using Python and Machine Learning</a></li>
+</ul>
+<p></p>
+
+<h3 id="ee470---digital-control">EE470 - Digital Control</h3>
+<ul>
+  <li><a href="/projects/leadcompcircuit">Analog Lead Compensator Circuit</a></li>
+  <li><a href="/projects/adcdac">Analog-to-Digital / Digital-to-Analog Conversion using Arduino</a></li>
+</ul>
+:ET

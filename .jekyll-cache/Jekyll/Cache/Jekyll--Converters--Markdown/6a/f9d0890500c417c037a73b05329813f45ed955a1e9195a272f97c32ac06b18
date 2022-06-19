@@ -1,0 +1,10 @@
+I"r<p>In the spirit of continual improvement, as well end-user consideration, I’ve made some structural and procedural updates.</p>
+
+<p>First, with the consideration that not everyone who visits this site will be people with technical backgrounds, I’ve restructured my project pages to have a simple, hopefully easy-to-understand summary, with a link to the actual report/presentation that includes all the technical details. And I’ll periodically review the pages again to see if there’re things I could present or explain better. Teaching/explaining things well, especially technical things, is not always easy, but I would like to improve my skills in that regard. And I hope that whoever comes here, whether by invitation or accident, can learn something interesting from what I’ve done.</p>
+
+<p>On the procedural side, I’ve also transitioned to using VSCode to manage this site, rather than using GitHub directly. There were a few benefits that made me decide to implement this change. First, it’s always good to learn another tool. Using VSCode also allows me to preview the content locally, without having to wait for GitHub to publish the page, which can take some time. Lastly, it’s definitely more convenient to be able to work on this locally, since literally the next day after I downloaded the repository to my laptop, we had an internet outage that lasted almost a full day!</p>
+
+<p>This whole process has really reminded me of how much I still need to learn though, especially with computers, in this case. Granted, I’m not a CS guy, but still. Learning more things never hurts.</p>
+
+<p>Well, until the next update!</p>
+:ET
