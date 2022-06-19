@@ -12,7 +12,7 @@ For our senior capstone design course, our group decided to build an unmanned ae
 
 Our goal was to use commercially-available parts to build a(n X-configuration) quadcopter which would be capable of self-stabilization. The X-configuration quadcopter is by far the most popular UAV configuration for general purposes due to the fact that it can be controlled with a simple flight control system. We chose to use an Arduino UNO as our flight controller because it was something we were all at least somewhat familiar with, and for the abundance of resources available.
 
-[Full project details](/projects/quadcopter/detail.markdown)
+[Full project details](/projects/quadcopter/detail)
 
 ## Project Overview ##
 

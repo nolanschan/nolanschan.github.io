@@ -11,7 +11,7 @@ I had been wanting to learn more about machine learning (as well as Python), and
 
 For this project, I used the popular machine learning algorithm Gaussian Mixture Models (GMM) to train models to recognize the speakers of some commonly used "command" words. This project was implemented in Python, which I'm still new to, so I followed a base code and modified it to run on Python 3. 
 
-[Full project details](/projects/speakerrec/detail.markdown)
+[Full project details](/projects/speakerrec/detail)
 
 ## Project Overview ##
 
