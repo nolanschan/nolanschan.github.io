@@ -18,7 +18,7 @@ Our goal was to use commercially-available parts to build a(n X-configuration) q
 
 -  <u>Type</u>: Group (3 members)
 -  <u>Timeframe</u>: 1 semester (approx. 3 months)
--  <u>Relevant Concepts/Skills</u>: Research, cost analysis, component selection, electronics assembly and testing, signal processing, failure analysis, Arduino/C++ programming and debugging, flight mechanics, embedded systems, control theory, PID controller
+-  <u>Relevant Concepts/Skills</u>: Research, cost analysis, component selection, electronics assembly and testing, signal processing, failure analysis, Arduino/C++ programming and debugging, unmanned aerial vehicle (UAV), drone, quadcopter, flight mechanics, embedded systems, control theory, PID controller
 -  <u>Tools</u>: Arduino IDE, Arduino UNO microcontroller, soldering iron
 -  <u>Deliverable(s)</u>: Final "product" with demo video + 4 class presentations (Preliminary Design Review, Progress Update, Initial Results, Final Results)
 <p></p>
@@ -34,6 +34,18 @@ Our goal was to use commercially-available parts to build a(n X-configuration) q
   <li>Implemented PID controller to control quadcopter movement</li><ul style="list-style-type:circle;line-height:100%">
     <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul></ul>
 <p></p>
+
+## System Block Diagram ##
+<p></p>
+
+![](/projects/quadcopter/assets/blockdiagram.png)
+
+## Progress Pictures ##
+<p></p>
+
+![](/projects/quadcopter/assets/prog1.png)
+![](/projects/quadcopter/assets/prog2.jpg)
+![](/projects/quadcopter/assets/pidtuning.jpg)
 
 ## Results ##
 

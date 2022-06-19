@@ -11,7 +11,7 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 
 ### Skills: ###
 
--  <u>Programming Languages</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly
+-  <u>Programming Languages</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly, LaTeX
 -  <u>Electronic Design Automation</u>: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
 -  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD
 -  <u>Development Kits</u>: Arduino, Diligent Basys 3, STM32 Discovery

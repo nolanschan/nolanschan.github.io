@@ -15,7 +15,6 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 ## Index ##
 <p></p>
 
-[Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
 — [Flight Mechanics](#flight-mechanics) <br>
 — [Inertial Measurement Unit (IMU)](#inertial-measurement-unit-imu) <br>
@@ -29,27 +28,6 @@ Our goal was to use commercially-available parts to build a quadcopter which wou
 [Results and Analysis](#results-and-analysis) <br>
 [Repository](https://github.com/nolanschan/Arduino-Quadcopter)
 
-## Summary / tl;dr ##
-<p></p>
-
-### Procedures ###
-
-<ul style="list-style-type:disc;line-height:100%">
-  <li>Researched quadcopter flight mechanics, modeling, components, and control</li><ul style="list-style-type:circle;line-height:100%">
-    <li>Performed cost analysis and component selection to design, assemble, and test quadcopter</li></ul>
-  <li>Programmed and debugged flight controller code using Arduino</li><ul style="list-style-type:circle;line-height:100%">
-    <li>Implemented complementary filter to process signals from IMU</li>
-    <li>Set up and calibrated quadcopter and RC system using calibration code</li></ul>
-  <li>Implemented PID controller to control quadcopter movement</li><ul style="list-style-type:circle;line-height:100%">
-    <li>Improved flight and self-stabilization performance by tuning PID controller</li></ul></ul>
-<p></p>
-
-### Results ###
-
-Quadcopter was functional, but had a tendency to drift backwards and would occasionally "jump" unexpectedly. This was likely due to misalignment between the IMU and vehicle body.
-
-[(Jump down to demo video)](#results-and-analysis)
-
 ## Theory ##
 <p></p>
 
@@ -59,7 +37,7 @@ Before we could design a quadcopter, we had to learn how they fly!
 
 Unlike cars or boats, which move in 2-dimensional space, aircrafts move in 3-dimensional space. The orientation and control of an aircraft is therefore described by the three angles of rotation about the aircraft's center of gravity: roll, pitch, and yaw.
 
-<i>diagram here</i>
+![](/projects/quadcopter/assets/flightmechanics.png)
 
 A quadcopter is a helipcopter with 4 rotors. One (diagonal) pair spins clockwise (CW), while the other pair spins counterclockwise (CCW). The movement of a quadcopter is controlled by varying the speed of the rotors.
 
@@ -107,6 +85,10 @@ Since none of us knew much about selecting quadcopter components, we began by lo
 
 After further research, we made our initial purchases, which included a 220mm wheelbase carbon fiber frame (with 5030 propellers), a set of 2300kV brushless DC motors, electronic speed controllers, an MPU6050 IMU chip, a LiPo battery (+ charger), and a 6-channel digital radio control system.
 
+![](/projects/quadcopter/assets/prog1.png)
+
+![](/projects/quadcopter/assets/prog2.jpg)
+
 ## Initial Testing and Design Adjustments ##
 
 Upon assembling and testing our quadcopter, we found that it was too heavy! It took almost full throttle for our vehicle to start lifting, and it seemed off-balance. In our inexperience, we had neglected to properly account for the weight of all the components together! Oops. Going back to the drawing board, we decided to use a smaller battery, trading battery-life for less weight. We also opted for 3-blade propellers, which would help generate more lift.
@@ -140,4 +122,4 @@ Unfortunately, we were not able to test our theory or remedy the design before t
 ## Repository ##
 <p></p>
 
-The full code/repository can be found <a href="https://github.com/nolanschan/Arduino-Quadcopter">here</a>.
+The full code can be found in the repository [here](https://github.com/nolanschan/Arduino-Quadcopter).

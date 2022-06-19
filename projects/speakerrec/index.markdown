@@ -22,7 +22,7 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 -  <u>Deliverable(s)</u>: Final presentation
 <p></p>
 
-### Procedures ###
+## Procedures ##
 
 <ul style="list-style-type:disc;line-height:100%">
   <li>Researched machine learning and algorithmns</li>
@@ -35,7 +35,13 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 ## Results ##
 <p></p>
 
-Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The only exception is when the model is trained on the same word (4x) used for testing. In such cases, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
+![](/projects/speakerrec/assets/results1.png)
+
+![](/projects/speakerrec/assets/results2.png)
+
+Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The model tends to be more successful if the test word is one that it has "heard" at least once. 
+
+However, when the model is trained on the same word (4x) used for testing, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
 
 It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.
 

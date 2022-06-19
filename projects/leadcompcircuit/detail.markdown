@@ -14,7 +14,6 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 ## Index ##
 <p></p>
 
-[Summary / tl;dr](#summary--tldr) <br>
 [Op-Amp Selection](#op-amp-selection) <br>
 [Plant](#plant) <br>
 [Compensator](#compensator) <br>
@@ -25,23 +24,6 @@ The purpose of this lab experiment is to model a satellite in the analog domain 
 [Results and Discussion](#results-and-discussion) <br>
 [Conclusion](#conclusion) <br>
 [Appendix A: Full Schematic Diagram](#appendix-a)
-
-## Summary / tl;dr ##
-<p></p>
-
-### Process ###
-<ul style="list-style-type:disc;line-height:100%">
-	<li>Selected components</li>
-	<li>Designed circuit structure</li>
-	<li>Designed lead compensator based on given transfer function</li>
-	<li>Built Simulink model and simulated step response</li>
-	<li>Built physical circuit and obtained step response</li>
-	<li>Adjusted component values to optimize circuit: lower overshoot, decrease settling time</li></ul>
-<p></p>
-
-### Results ###
-
-Overall, the circuit worked as intended, but was very slow. This meant that the controller was only able to function at a very low frequency. It is possible that this was due to the fact that a single-supply op-amp was used.
 
 ## Op-Amp Selection ##
 <p></p>

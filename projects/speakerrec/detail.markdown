@@ -14,7 +14,6 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 ## Index ##
 <p></p>
 
-[Summary / tl;dr](#summary--tldr) <br>
 [Background / Theory](#background--theory) <br>
 [Connection to Fractals](#connection-to-fractals) <br>
 [Machine Learning Process](#machine-learning-process) <br>
@@ -26,22 +25,6 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 [Results and Discussion](#results-and-discussion) <br>
 [Future Work](#future-work) <br>
 [Repository](https://github.com/nolanschan/Speaker-Identification-using-GMMs)
-
-## Summary / tl;dr ##
-<p></p>
-
-### Process ###
-<ul style="list-style-type:disc;line-height:100%">
-  <li>Pre-processed voice clips from selected dataset</li>
-  <li>Performed feature extraction with Mel-frequency cepstral coefficients and delta-Mel-frequency cepstral coefficients</li>
-  <li> Trained models using Gaussian Mixture Models (GMM) algorithm</li>
-  <li>Tested validity of models by using unseen voice clips</li></ul>
-<p></p>
-
-### Results ###
-Due to the small amount of training data that the models were given, in general, the system was able to correctly recognize the speaker about 2/3 of the time. The exception was when the model was trained on a number of instances of the same word, and then asked to recognize the speaker saying the same word. In that case, the system was able to recognize the speaker 100% of the time.
-
-It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.
 
 ## Background / Theory ##
 <p></p>
@@ -161,7 +144,29 @@ Some important differences to note are that data points can belong to more than 
 ## Connection to Fractals ##
 <p></p>
 
+### Scale ###
 
+One feature of fractals that we discussed in class is "scale", and the idea that what we can see depends on how closely we "zoom in". 
+
+![](/projects/speakerrec/assets/scale.png)
+
+Here are 2 different versions of the same waveform of one of the voice clips used. In the top waveform, most of the end just looks like noise. But if we zoom in closer, we get the bottom waveform, and we can see that there's actually a little something right at the end there. That's actually the "p"-sound in the word "stop", an important feature! If we hadn't looked closer, we might have dismissed it as noise and accidentally trimmed part of the word. 
+
+### Self-similarity ###
+
+The other feature of fractals that people are most familiar with is of course the concept of "self-similarity". In this case, rather than exact self-similarity, we're looking instead at stochastic self-similarity. When it comes to speech, even if we try, we can't say the same word exactly the same twice. But yet, we still recognize the word. We also recognize when different people are saying the same word. The fact that we can train a machine to recognize different speakers as well as words, is based on the premise that there is some stochastic, or statistic, self-similarity that can be recognized.
+
+Here we have 2 instances each of 3 different people saying the word "yes".
+
+![](/projects/speakerrec/assets/selfsim1.png)
+
+We can see that the waveforms for each speaker definitely look alike. There is also some similarity between all these instances, especially when compared to the waveform of the word "stop" above.
+
+We can also look at the Mel-scaled spectrograms of these waveforms. 
+
+![](/projects/speakerrec/assets/selfsim2.png)
+
+In the frequency-domain, the similarities between the 2 instances of each speaker is even more obvious!
 
 ## Machine Learning Process ##
 <p></p>
@@ -333,7 +338,15 @@ for path in file_paths:
 ## Results and Discussion ##
 <p></p>
 
-Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The only exception is when the model is trained on the same word (4x) used for testing. In such cases, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
+![](/projects/speakerrec/assets/results1.png)
+
+![](/projects/speakerrec/assets/results2.png)
+
+Due to the small dataset used (about 5-13 seconds, including silence, of voice clips per speaker), in general the model is only successful about 4-5 out of 6 times at identifying the speaker. The model tends to be more successful if the test word is one that it has "heard" at least once. 
+
+However, when the model is trained on the same word (4x) used for testing, even though the test clip is previously unseen, the model is able to identify the speaker 100% of the time.
+
+It was also accidentally found that the system seemed able to recognize between different words, implying that the system could be used to perform speech recognition instead/as well.
 
 ## Future Work ##
 <p></p>

@@ -14,7 +14,6 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 ## Index ##
 <p></p>
 
-[Summary / tl;dr](#summary--tldr) <br>
 [Theory](#theory) <br>
 — [Analog-to-Digital Conversion (ADC)](#analog-to-digital-conversion-adc) <br>
 — [Clock Rate](#clock-rate) <br>
@@ -24,23 +23,6 @@ The purpose of this lab experiment is to understand the principals of analog-to-
 [Program Code (Repository)](https://github.com/nolanschan/Arduino-ADC-DAC) <br>
 [Results and Discussion](#results-and-discussion) <br>
 [Conclusion](#conclusion) <br>
-
-## Summary / tl;dr ##
-<p></p>
-
-### Procedures ###
-<ul style="list-style-type:disc;line-height:100%">
-  <li>Assembled system circuit</li>
-  <li>Converted analog input (sine wave) to digital signal using Arduino ADC</li>
-  <li>Converted digital signal to analog output using MCP4921 IC chip (DAC)</li>
-  <li>Increased clock rate and repeated procedures</li></ul>
-<p></p>
-
-### Results ###
-
-System was implemented properly and correctly converted analog input to digital signal, then back to analog output. The maximum input frequency at which the default clock rate is able to replicate the input sine wave is ≤ 1kHz, likely at a frequency closer to 100Hz. For the faster clock rate, the highest frequency appears to be around 2k - 5kHz.
-
-[(Jump to detailed results)](#results-and-discussion)
 
 ## Theory ##
 <p></p>
