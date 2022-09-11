@@ -5,9 +5,11 @@ title: About
 
 # About #
 
-Hello! I'm Nolan. I just graduated with a BSEE (Controls concentration) from California State University, Long Beach in May, 2022. Coming from an arts/music background and picking up a fascination with psychology along the way before transitioning to engineering, I'm passionate about science/technology, design, people, and fields where they intersect. I'm proud to be the kind of person who's enthusiastically interested to learn about pretty much anything and everything.
+Hello! I'm Nolan. I have a BSEE (Controls concentration) from California State University, Long Beach, and I'm currently working as an Electronics Test Engineer in the aerospace industry, doing Radiation Effects testing. 
 
-So far my work experience has mainly been in themed entertainment. It was one of my inspirations for going back to school to study Engineering, and will always be something I love. But I'm also interested in broadening my horizons and gaining experience in other fields such as aerospace (especially the space part!), automotives, and sustainable technology. I would particularly love to work with robotics, controls and automation, AI, machine learning, human-machine interaction, and space exploration. 
+Before aerospace, my work experience has mainly been in themed entertainment. It was one of my inspirations for going back to school to study Engineering, and will always be something I love. Right now I'm focused on developing my skills and expanding my knowledge as an engineer, while I (maybe) find something that I love enough to pursue an advanced degree for. 
+
+Coming from an arts/music background and picking up a fascination with psychology along the way before transitioning to engineering, I'm passionate about science/technology, design, people, and fields where they intersect. While I'm proud to be someone who will enthusiastically learn about pretty much anything and everything, I'm particularly interested in robotics, controls and automation, AI, machine learning, human-machine interaction, and space exploration. I'm hoping to continue this habit of detailed documentation as I work on personal projects to learn more about these topics.
 
 My other hobbies include reading (books as well as following down the Wikipedia rabbit hole), photography, traveling, food, and horticulture (particularly bonsais, but I'm planning to expand to hydro/aquaponics when I have more space).
 
