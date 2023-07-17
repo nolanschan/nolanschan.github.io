@@ -4,7 +4,7 @@ layout: default
 ---
 # Project Einstein VR - Motion Simulators #
 
-[Project Einstein VR](https://www.projecteinsteinvr.com/) is a start-up that builds motion simulators for location-based entertainment and education venues. 
+Project Einstein VR is a start-up that builds motion simulators for location-based entertainment and education venues. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VBznzFzAyjo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
