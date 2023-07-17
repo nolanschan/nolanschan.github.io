@@ -17,8 +17,8 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 
 -  <u>Programming Languages/Environments</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly, LaTeX
 -  <u>Electronic Design Automation</u>: Altium Designer, OrCAD PCB Designer, OrCAD PSPICE, LTspice, Xilinx Vivado
--  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD
--  <u>Development Kits</u>: Arduino, Diligent Basys 3, STM32 Discovery
+-  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD, CATIA V5
+-  <u>Development Kits</u>: Arduino, Digilent Basys 3 (Artix-7), STM32 Discovery
 -  <u>Software</u>: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
 -  <u>Benchtop Equipment</u>: Oscilloscope, digital multimeter, function generator, DC power supply, NI myDAQ
 -  <u>Languages</u>: Cantonese, Mandarin, Japanese
