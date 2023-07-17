@@ -336,7 +336,8 @@ for path in file_paths:
 <p></p>
 
 ## Results and Discussion ##
-<p></p>
+
+Trained models achieved 67-100% accuracy in speaker recognition depending on test data used.
 
 ![](/projects/speakerrec/assets/results1.png)
 
