@@ -33,7 +33,8 @@ For this project, I used the popular machine learning algorithm Gaussian Mixture
 <p></p>
 
 ## Results ##
-<p></p>
+
+Trained models achieved 67-100% accuracy in speaker recognition depending on test data used.
 
 ![](/projects/speakerrec/assets/results1.png)
 
