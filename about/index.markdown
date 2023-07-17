@@ -5,7 +5,7 @@ title: About
 
 # About #
 
-Hello! I'm Nolan. I have a BSEE (Controls concentration) from California State University, Long Beach, and I'm currently working as an Electronics Test Engineer in the aerospace industry, doing Radiation Effects testing. 
+Hello! I'm Nolan. I have a BSEE (Controls concentration) from California State University, Long Beach, and I'm currently working as a Radiation Effects Test Engineer in the aerospace industry.
 
 Before aerospace, my work experience has mainly been in themed entertainment. It was one of my inspirations for going back to school to study Engineering, and will always be something I love. Right now I'm focused on developing my skills and expanding my knowledge as an engineer, while I (maybe) find something that I love enough to pursue an advanced degree for. 
 
@@ -16,7 +16,7 @@ My other hobbies include reading (books as well as following down the Wikipedia 
 ### Skills: ###
 
 -  <u>Programming Languages/Environments</u>: MATLAB, Simulink, C++, Python, LabVIEW, VHDL, Assembly, LaTeX
--  <u>Electronic Design Automation</u>: Cadence OrCAD PSPICE, LTspice, Xilinx Vivado
+-  <u>Electronic Design Automation</u>: Altium Designer, OrCAD PCB Designer, OrCAD PSPICE, LTspice, Xilinx Vivado
 -  <u>Computer-Aided Design</u>: SolidWorks (Certified SolidWorks Associate), AutoCAD
 -  <u>Development Kits</u>: Arduino, Diligent Basys 3, STM32 Discovery
 -  <u>Software</u>: Microsoft Office Suite, Adobe Creative Suite (Photoshop, Illustrator, InDesign)
