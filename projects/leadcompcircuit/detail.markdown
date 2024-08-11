@@ -68,7 +68,7 @@ $$b\ =\ \frac{1}{\left(100\times{10}^3\right)\left(10\times{10}^{-6}\right)}\ =\
 
   Solving for R1,
   
-$$10\ =\ \(1+\frac{\left(100\times{10}^3\right)}{R_1}\)\(1\)$$
+$$10\ =\ \left(1+\frac{\left(100\times{10}^3\right)}{R_1}\right)\left(1\right)$$
 
 $$9\ =\ \frac{\left(100\times{10}^3\right)}{R_1}$$
 
