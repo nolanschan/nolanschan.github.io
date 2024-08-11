@@ -52,7 +52,7 @@ $$C(s)\ =\ k\frac{\left(s+1\right)}{\left(s+10\right)}$$
 
   The circuit design of a lead compensator was found in Design of Feedback Control Systems, 4th ed., by Stefani, Shahian, Savant, and Hostetter, with the following parameters.
 
-![](/projects/leadcompcircuit/assets/leadcompcircuit.png" width="800">
+![](/projects/leadcompcircuit/assets/leadcompcircuit.png)
 
 $$k\frac{\left(s+b\right)}{\left(s+a\right)}$$
 
@@ -68,7 +68,7 @@ $$b\ =\ \frac{1}{\left(100\times{10}^3\right)\left(10\times{10}^{-6}\right)}\ =\
 
   Solving for R1,
   
-$$10\ =\ \left[1+\frac{\left(100\times{10}^3\right)}{R_1}\right](1)$$
+$$10\ =\ \(1+\frac{\left(100\times{10}^3\right)}{R_1}\)\(1\)$$
 
 $$9\ =\ \frac{\left(100\times{10}^3\right)}{R_1}$$
 
